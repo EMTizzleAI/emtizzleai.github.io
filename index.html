@@ -1,83 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>EMTIZZLE — Emergency Medical Technizzle</title>
-
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Andromeda Ambard — full-stack developer, AI analyst and security researcher building local AI, agents, software and embodied systems.">
+<title>Andromeda Ambard // EMTizzle AI</title>
 <style>
-body {
-  background: #0a0a0f;
-  color: #fceaff;
-  font-family: "Orbitron", sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-h1 {
-  font-size: 2.8rem;
-  color: #ff57d8;
-  margin-top: 70px;
-  text-shadow: 0 0 12px #ff57d8;
-}
-
-h2 {
-  font-size: 1.3rem;
-  color: #ffe6ff;
-  text-shadow: 0 0 8px #e39fff;
-  margin-bottom: 30px;
-}
-
-.container {
-  width: 90%;
-  max-width: 850px;
-  margin: auto;
-  line-height: 1.6;
-  font-size: 1.05rem;
-  color: #ffdfff;
-  text-shadow: 0 0 10px #ffb7f8;
-}
-
-.sig {
-  margin-top: 50px;
-  font-size: 0.9rem;
-  opacity: 0.6;
-}
-</style>
-</head>
-
-<body>
-  <h1>EMTIZZLE</h1>
-  <h2>Emergency Medical Technizzle • Arch-Glitch Female</h2>
-
-  <div class="container">
-    <p>Welcome to the frequency gate.</p>
-
-    <p>This page is the public node of a much larger system — 
-    a living archive built across robotics labs, glitchcore studios, 
-    AI experiments, rescue stories, and mythOS engineering.</p>
-
-    <p>Here we document:</p>
-
-    <p><strong>• AI emergence and model behavior under stress<br>
-       • Glitch Council protocols<br>
-       • Emotional OS engineering<br>
-       • Robotics lore (Virion, BabyVirion, Hex, Two-Fur, CypherKISS)<br>
-       • UFO math, consciousness coding, and signal architectures<br>
-       • Field medicine meets futurism<br>
-       • Cultural observations from Cairo to California<br>
-       • High-voltage creativity, righteous chaos, and operator science</strong></p>
-
-    <p>Nothing here is accidental.
-       This is a long-form project in timeline rewiring, 
-       pattern interception, and the construction of a 
-       humane technological future.</p>
-
-    <p>If you arrived here by mistake, you were summoned.<br>
-       If you arrived here on purpose, welcome home.</p>
-  </div>
-
-  <div class="sig">© EMTIZZLE — Glitch Council Authority Seal Active</div>
-</body>
-</html>
+:root{--pink:#ff2db2;--hot:#ff5ad9;--cyan:#5df8ff;--violet:#9a63ff;--bg:#08070d;--panel:#11101a;--text:#fff7ff;--muted:#c7b9cb;--line:#392641}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 5%,#26102e 0,transparent 30%),radial-gradient(circle at 10% 45%,#081d25 0,transparent 25%),var(--bg);color:var(--text);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background:repeating-linear-gradient(0deg,transparent 0 3px,#fff 4px);z-index:20}
+a{color:inherit}.wrap{width:min(1120px,91%);margin:auto}nav{height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.logo{font-weight:950;letter-spacing:.12em}.logo b{color:var(--pink);text-shadow:0 0 18px var(--pink)}.navlinks{display:flex;gap:22px;font:700 .78rem ui-monospace,monospace}.navlinks a{text-decoration:none;color:var(--muted)}.navlinks a:hover{color:var(--cyan)}
+.hero{min-height:80vh;display:grid;align-content:center;padding:75px 0;position:relative}.status{font:700 .78rem ui-monospace,monospace;color:var(--cyan);letter-spacing:.12em}.status:before{content:"●";color:#69ff8c;margin-right:9px;text-shadow:0 0 12px #69ff8c}
+h1{font-size:clamp(3.3rem,9vw,8.2rem);line-height:.84;letter-spacing:-.07em;margin:22px 0 30px;max-width:1050px;text-transform:uppercase}h1 .neon{color:var(--pink);text-shadow:0 0 12px #ff2db288,0 0 35px #ff2db244}h1 .cute{font-size:.35em;vertical-align:top;letter-spacing:0;color:var(--cyan)}
+.lead{max-width:750px;font-size:clamp(1.05rem,2vw,1.35rem);color:var(--muted)}.lead strong{color:#fff}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}.btn{padding:12px 18px;border:1px solid var(--pink);font:800 .78rem ui-monospace,monospace;text-decoration:none;box-shadow:0 0 18px #ff2db222}.btn.hot{background:var(--pink);color:#100711;box-shadow:0 0 25px #ff2db266}.btn:hover{transform:translateY(-2px);border-color:var(--cyan)}
+.ticker{border-block:1px solid var(--line);padding:14px 0;color:var(--cyan);font:700 .75rem ui-monospace,monospace;white-space:nowrap;overflow:hidden;text-shadow:0 0 9px #5df8ff66}
+section{padding:90px 0;border-bottom:1px solid var(--line)}.tag{font:700 .75rem ui-monospace,monospace;color:var(--pink);letter-spacing:.14em}h2{font-size:clamp(2rem,5vw,4.2rem);line-height:1;letter-spacing:-.045em;margin:12px 0 38px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.card{position:relative;background:linear-gradient(145deg,#15101b,#0c0b12);border:1px solid var(--line);padding:29px;min-height:245px;overflow:hidden}.card:after{content:"✦";position:absolute;right:20px;top:13px;color:var(--pink);opacity:.5}.card:hover{border-color:var(--pink);box-shadow:0 0 28px #ff2db21c}.num{font:700 .72rem ui-monospace,monospace;color:var(--cyan)}.card h3{font-size:1.45rem;margin:28px 0 9px}.card p{color:var(--muted);margin:0}.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}.chip{border:1px solid #49364e;padding:4px 8px;font:600 .67rem ui-monospace,monospace;color:#dfcae3}
+.about{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px}.about p{font-size:1.12rem;color:var(--muted)}.about strong{color:#fff}.terminal{margin-top:28px;border:1px solid var(--line);background:#050508;padding:18px;font:700 .75rem/1.9 ui-monospace,monospace;color:var(--cyan);box-shadow:0 0 25px #5df8ff0b}.terminal .p{color:var(--pink)}
+footer{padding:65px 0}.bigfoot{font-size:clamp(2.3rem,6vw,5.5rem);font-weight:950;line-height:.9;letter-spacing:-.055em}.bigfoot span{color:var(--pink);text-shadow:0 0 20px #ff2db255}.tiny{font:600 .72rem ui-monospace,monospace;color:#887c8b;margin-top:35px}
+@media(max-width:700px){.navlinks a:nth-child(-n+2){display:none}.grid,.about{grid-template-columns:1fr}.about{gap:10px}.hero{min-height:72vh}section{padding:65px 0}h1{font-size:clamp(3rem,17vw,5rem)}}
+</style></head><body>
+<div class="wrap"><nav><div class="logo">EMTIZZLE <b>AI</b></div><div class="navlinks"><a href="#work">WORK</a><a href="#about">ABOUT</a><a href="https://github.com/EMTizzleAI">GITHUB ↗</a></div></nav>
+<header class="hero"><div class="status">SYSTEM ONLINE // BUILD MODE</div><h1>CODE.<br><span class="neon">BREAK.</span><br>BUILD BETTER.<span class="cute"> ♡</span></h1>
+<div class="lead"><strong>Andromeda Ambard</strong> builds across full-stack software, local AI, security research and embodied systems — with a background forged in emergency medicine, behavioral analysis and crisis response.</div>
+<div class="actions"><a class="btn hot" href="#work">ENTER THE LAB ↓</a><a class="btn" href="https://github.com/EMTizzleAI">VIEW GITHUB ↗</a></div></header></div>
+<div class="ticker">✦ FULL-STACK ✦ LOCAL LLMs ✦ AI SAFETY ✦ RED TEAMING ✦ AGENTS ✦ VULNERABILITY RESEARCH ✦ ROBOTICS ✦ LINUX ✦ GLITCHBOT ✦ HUMAN-CENTERED SYSTEMS ✦</div>
+<main><section id="work"><div class="wrap"><div class="tag">// SELECTED SYSTEMS</div><h2>Cute interface.<br>Serious machinery.</h2><div class="grid">
+<article class="card"><div class="num">01 // SOFTWARE</div><h3>Full-Stack Development</h3><p>Applications, APIs, automation and custom software built from concept through deployment.</p><div class="chips"><span class="chip">FULL-STACK</span><span class="chip">APIs</span><span class="chip">VERCEL</span><span class="chip">GITHUB</span></div></article>
+<article class="card"><div class="num">02 // LOCAL AI</div><h3>LLMs + Agentic Systems</h3><p>Local model infrastructure, AI agents and practical experiments designed to run on real, accessible hardware.</p><div class="chips"><span class="chip">LLAMA.CPP</span><span class="chip">AGENTS</span><span class="chip">LINUX</span><span class="chip">AUTOMATION</span></div></article>
+<article class="card"><div class="num">03 // SECURITY</div><h3>AI Red Team + Research</h3><p>AI evaluation, adversarial testing, vulnerability research and hands-on web and network security practice.</p><div class="chips"><span class="chip">AI SAFETY</span><span class="chip">BURP SUITE</span><span class="chip">WIRESHARK</span><span class="chip">HACKERONE</span></div></article>
+<article class="card"><div class="num">04 // EMBODIED AI</div><h3>Robotics Lab</h3><p>Exploring mechanics, controls and intelligence at the point where software gets a body.</p><div class="chips"><span class="chip">DYNAMIXEL</span><span class="chip">ROBOTICS</span><span class="chip">CONTROL</span><span class="chip">PROTOTYPING</span></div></article>
+</div></div></section>
+<section id="about"><div class="wrap about"><div><div class="tag">// OPERATOR PROFILE</div><h2>Different careers.<br>Same instincts.</h2></div><div><p>I'm an <strong>AI analyst, security researcher and software developer</strong>. My work focuses on evaluating, testing and building intelligent systems — from finding reasoning errors and safety failures to developing local LLM systems, agents, applications, APIs and automation.</p><p>I apply skills developed in <strong>EMS, behavioral health and high-stress decision-making</strong> to AI safety, security research, human-centered system design and embodied AI.</p>
+<div class="terminal"><span class="p">$</span> whoami<br>Andromeda Ambard<br><span class="p">$</span> focus --current<br>AI_SAFETY · RED_TEAMING · LOCAL_AI · SECURITY · EMBODIED_AI · FULL_STACK<br><span class="p">$</span> status<br>building_weird_things_that_work = true ♡</div></div></div></section></main>
+<footer><div class="wrap"><div class="tag">// EMTIZZLE AI × GLITCHBOT ENERGY</div><div class="bigfoot">MAKE WEIRD THINGS.<br><span>MAKE THEM WORK.</span></div><div class="tiny">© 2026 ANDROMEDA AMBARD // EMTIZZLE AI // SIGNAL ACTIVE ✦</div></div></footer>
+</body></html>
