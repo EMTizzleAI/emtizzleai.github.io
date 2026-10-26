@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#071c21">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="Send thoughtful bilingual greetings for Fridays, Umrah, and meaningful occasions. Save your favorites and share across the distance.">
+  <meta name="description" content="AI greetings for personal milestones, holidays, love and faith in Arabic and English.">
   <meta name="application-name" content="Smart Greetings">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -54,6 +54,26 @@
 .ai-result-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
 .ai-result-actions button{flex:1;min-width:120px;min-height:42px;border-radius:9px;padding:8px 11px;font-size:12px;font-weight:700;color:#20312d;background:#f2d59e;border:1px solid #efd8a7}
 .ai-result-actions button+button{color:#f5e9ce;background:#1b4541;border-color:#7e9b85}
+
+/* Category-first landing page */
+.home-hero{text-align:center;padding:42px 7px 26px;background:radial-gradient(ellipse at top,#36745b33,transparent 70%)}
+.home-hero h1{font-family:Georgia,serif;font-size:clamp(37px,8vw,61px);font-weight:400;line-height:1.08;letter-spacing:-.045em;max-width:600px;margin:13px auto}
+.home-hero em{color:var(--gold);font-weight:400}.home-hero p{max-width:520px;margin:auto;color:#c6d8ce;font-size:14px}
+.home-section-heading{margin:18px 0 14px}.home-section-heading h2{font-size:20px;letter-spacing:-.025em;margin:5px 0 0}
+.home-category-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.home-category{color:#faf2e8;text-align:left;min-width:0;border:1px solid #d3ba885e;background:linear-gradient(145deg,#183f3b,#0b2931);border-radius:19px;min-height:176px;padding:16px 13px;display:flex;align-items:start;flex-direction:column;gap:4px}
+.home-category[aria-pressed="true"]{border-color:var(--gold);background:linear-gradient(145deg,#2b5144,#123536);box-shadow:inset 0 0 0 1px #eacc8538}
+.home-category-emoji{font-size:29px;line-height:1.45}.home-category strong{font-size:15px;line-height:1.3}.home-category small{color:#c3d8cd;font-size:11px;line-height:1.35}.home-category .explore{font-size:11px;font-weight:750;color:var(--gold);margin-top:auto}
+.home-picker{margin-top:26px;scroll-margin-top:93px}.home-occasion-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.home-occasion{display:flex;align-items:center;gap:9px;text-align:left;min-width:0;min-height:66px;padding:10px;border:1px solid #79958363;background:#103539;color:#f6f2e8;border-radius:13px}
+.home-occasion span{font-size:23px}.home-occasion strong{font-size:12px;font-weight:700;line-height:1.2}.home-occasion small{display:block;color:#bdd3c9;font-size:10px;font-weight:400;margin-top:4px}
+.home-browse{width:100%;min-height:45px;background:#23443d;border:1px solid #d6c18b66;border-radius:11px;color:#f9dfb3;margin-top:11px;font-size:12px;font-weight:800}
+.home-custom{display:flex;gap:11px;align-items:center;flex-wrap:wrap;margin-top:24px;padding:17px;border:1px solid #f6d89f88;border-radius:18px;background:linear-gradient(130deg,#3c3833,#143b3d)}
+.home-custom>span{color:#f4d89f;font-size:31px}.home-custom>div{flex:1;min-width:160px}.home-custom strong{font-size:14px}.home-custom p{font-size:11px;color:#c3d3c6;margin:4px 0 0}.home-custom button{min-height:42px;background:#f5d89f;color:#13332e;border:0;border-radius:10px;padding:9px 14px;font-size:12px;font-weight:800}
+.home-footer{text-align:center;font-size:11px;color:#95b8ac;padding:19px 5px}
+.occasion-picker{display:block;width:100%;min-height:53px;padding:12px 14px;border-radius:13px;background:#0a2b30;color:#f7eedf;border:1px solid #b0b38988}
+.custom-occasion-group{margin:13px 0 0}
+@media(min-width:760px){#view-home{max-width:820px;margin:auto}.home-hero{padding:68px 0 33px}.home-category{min-height:185px;padding:23px}.home-occasion-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
   </style>
   <title>Smart Greetings · Moments worth sharing</title>
 </head>
@@ -70,7 +90,31 @@
     </header>
 
     <main id="main" class="main-container">
-      <section class="view" id="view-create" aria-labelledby="create-title">
+      <section class="view" id="view-home" aria-labelledby="home-title">
+        <div class="home-hero"><div class="eyebrow"><span class="status-dot"></span> FROM THE HEART · من القلب</div>
+          <h1 id="home-title">Every moment deserves <em>words.</em></h1>
+          <p>What are we celebrating? Choose a category, find your occasion, and make it personal with FalahwAI.</p>
+        </div>
+        <div class="home-section-heading"><span class="kicker">01 / EXPLORE</span><h2>What brings you here?</h2></div>
+        <div class="home-category-grid" role="group" aria-label="Greeting categories">
+          <button class="home-category" data-home-category="personal" aria-pressed="true"><span class="home-category-emoji">🎂</span><strong>Personal</strong><small>Birthdays, milestones & thanks</small><span class="explore">Explore →</span></button>
+          <button class="home-category" data-home-category="holidays" aria-pressed="false"><span class="home-category-emoji">🎊</span><strong>Holidays</strong><small>Eid, Christmas & beyond</small><span class="explore">Explore →</span></button>
+          <button class="home-category" data-home-category="faith" aria-pressed="false"><span class="home-category-emoji">🌙</span><strong>Faith & Milestones</strong><small>Umrah, Jumu'ah & blessings</small><span class="explore">Explore →</span></button>
+          <button class="home-category" data-home-category="love" aria-pressed="false"><span class="home-category-emoji">💗</span><strong>Love & Romance</strong><small>Love notes, weddings & more</small><span class="explore">Explore →</span></button>
+        </div>
+        <section class="home-picker" id="home-picker" aria-labelledby="home-picker-title">
+          <div class="home-section-heading"><span class="kicker">02 / PICK YOUR MOMENT</span><h2 id="home-picker-title">Personal</h2></div>
+          <div id="home-occasion-list" class="home-occasion-grid"></div>
+          <button class="home-browse" id="home-browse" type="button">Browse every occasion ↗</button>
+        </section>
+        <div class="home-custom">
+          <span aria-hidden="true">✦</span><div><strong>Your occasion isn't listed?</strong><p>Make a greeting for absolutely any celebration or milestone.</p></div>
+          <button type="button" id="home-custom">✨ Create your own</button>
+        </div>
+        <p class="home-footer">✦ AI-powered Arabic + English · Made for sharing ✦</p>
+      </section>
+
+      <section class="view hidden" id="view-create" aria-labelledby="create-title">
         <div class="intro">
           <div class="eyebrow"><span class="status-dot"></span> A little love, from anywhere</div>
           <h1 id="create-title">Make someone’s <em>day.</em></h1>
@@ -80,11 +124,12 @@
         <div class="composer-layout">
           <section class="composer-panel" aria-labelledby="compose-heading">
             <div class="section-heading"><div><span class="kicker">01 / Choose</span><h2 id="compose-heading">The occasion</h2></div><span class="tiny-tag">العربية + English</span></div>
-            <div id="occasion-choices" class="occasion-choices" role="group" aria-label="Choose an occasion"></div>
+            <select id="occasion-choices" class="occasion-picker" aria-label="Choose an occasion"></select>
+            <label class="field-group custom-occasion-group hidden" id="custom-occasion-group"><span>Name your special occasion</span><input id="custom-occasion-input" type="text" maxlength="90" placeholder="e.g. A new job, a first date"><small>FalahwAI will create original words for your moment.</small></label>
             <div class="field-grid">
               <label class="field-group"><span>Who is it for?</span><input id="recipient-input" type="text" maxlength="80" autocomplete="off" placeholder="Name (optional)"></label>
               <label class="field-group"><span>Greeting language</span><select id="language-select"><option value="both">Arabic + English</option><option value="ar">العربية فقط · Arabic only</option><option value="en">English only</option></select></label>
-              <label class="field-group hidden" id="date-group"><span>Umrah occasion date</span><input id="date-input" type="date"><small>Umrah is a personal pilgrimage milestone—not a fixed annual holiday.</small></label>
+              <label class="field-group hidden" id="date-group"><span>Occasion date (optional)</span><input id="date-input" type="date"><small>Add a date if you want a reminder. Holiday dates vary by location and year.</small></label>
             </div>
 
             <section class="ai-studio" aria-labelledby="falahwai-title">
@@ -140,10 +185,10 @@
       </section>
 
       <section class="view hidden" id="view-occasions" aria-labelledby="occasions-title">
-        <div class="intro"><div class="eyebrow">Our growing calendar</div><h1 id="occasions-title">Every moment <em>matters.</em></h1><p>Two real occasions to start with. More holidays, birthdays, and milestones are coming.</p></div>
+        <div class="intro"><div class="eyebrow">Our growing calendar</div><h1 id="occasions-title">Every moment <em>matters.</em></h1><p>Choose from personal moments, holidays, faith milestones and love — or make your own.</p></div>
         <div class="section-heading"><h2>Occasion library</h2><span class="tiny-tag" id="occasion-count">2 occasions</span></div>
         <div class="library-list" id="occasion-library"></div>
-        <div class="info-panel"><span class="info-icon">✦</span><div><h3>Built for more traditions</h3><p>Future additions can include Ramadan, Eid al-Fitr, Eid al-Adha, birthdays, anniversaries, and cultural holidays. Dates will be verified before release.</p></div></div>
+        <div class="info-panel"><span class="info-icon">✦</span><div><h3>Built for more traditions</h3><p>Greetings for every category are ready. Holiday dates are not calculated automatically yet; set an optional date for a reminder.</p></div></div>
       </section>
 
 
@@ -207,8 +252,8 @@
 
     <nav class="bottom-nav" aria-label="Main navigation">
       <div class="nav-inner">
-        <button type="button" class="nav-item selected" data-tab="create" aria-current="page"><span class="nav-icon" aria-hidden="true">✎</span><span>Create</span></button>
-        <button type="button" class="nav-item" data-tab="occasions"><span class="nav-icon" aria-hidden="true">☷</span><span>Occasions</span></button>
+        <button type="button" class="nav-item selected" data-tab="home" aria-current="page"><span class="nav-icon" aria-hidden="true">⌂</span><span>Home</span></button>
+        <button type="button" class="nav-item" data-tab="create"><span class="nav-icon" aria-hidden="true">✎</span><span>Create</span></button>
         <button type="button" class="nav-item" data-tab="love"><span class="nav-icon" aria-hidden="true">♡</span><span>Love</span></button>
         <button type="button" class="nav-item" data-tab="vendors"><span class="nav-icon" aria-hidden="true">◇</span><span>Vendors</span></button>
         <button type="button" class="nav-item" data-tab="saved"><span class="nav-icon" aria-hidden="true">♡</span><span>Saved</span></button>
@@ -217,7 +262,7 @@
     <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
   </div>
 <script src="https://js.puter.com/v2/" async></script>
-<script type="application/json" id="occasion-json">{"schemaVersion": 1, "project": "Smart Greetings — Events & Gift Recommendation App", "occasions": [{"id": "jumuah-mubarak", "category": "weekly-religious-observance", "name": {"en": "Jumu'ah Mubarak", "ar": "جمعة مباركة"}, "subtitle": {"en": "Blessed Friday", "ar": "جمعة طيبة مباركة"}, "recurrence": {"kind": "weekly", "dayOfWeek": 5, "useRecipientsLocalTimezone": true}, "greeting": {"ar": "جمعة مباركة! اللهم في يوم الجمعة اجعل لنا دعوة لا تُرد، وارزقنا رزقًا لا يُعد، وافتح لنا أبواب الجنة.", "en": "Blessed Friday! O Allah, on this Friday, grant us prayers that are answered, provide us with blessings beyond measure, and open for us the gates of Paradise."}, "features": ["send-greeting", "share-card", "optional-weekly-reminder"], "giftSuggestions": [], "note": "A weekly Islamic observance/greeting, not an annual public holiday. Gifts or purchases are not customary requirements."}, {"id": "umrah-mubarak", "category": "pilgrimage-milestone", "name": {"en": "Umrah Mubarak", "ar": "عمرة مباركة"}, "subtitle": {"en": "Blessings on your Umrah", "ar": "تقبل الله عمرتك"}, "recurrence": {"kind": "user-specified-date"}, "greeting": {"ar": "عمرة مباركة! تقبل الله عمرتك، وغفر ذنبك، وكتب لك الأجر.", "en": "Blessings on your Umrah! May Allah accept your pilgrimage, forgive your sins, and reward you."}, "features": ["send-greeting", "share-card", "optional-milestone-reminder"], "giftSuggestions": ["congratulations-card", "dates", "flowers"], "note": "Umrah is a pilgrimage, not a fixed annual holiday; the sender chooses the relevant date."}]}</script>
+<script type="application/json" id="occasion-json">{"schemaVersion":1,"project":"Smart Greetings — Events & Gift Recommendation App","occasions":[{"id":"jumuah-mubarak","category":"weekly-religious-observance","name":{"en":"Jumu'ah Mubarak","ar":"جمعة مباركة"},"subtitle":{"en":"Blessed Friday","ar":"جمعة طيبة مباركة"},"recurrence":{"kind":"weekly","dayOfWeek":5,"useRecipientsLocalTimezone":true},"greeting":{"ar":"جمعة مباركة! اللهم في يوم الجمعة اجعل لنا دعوة لا تُرد، وارزقنا رزقًا لا يُعد، وافتح لنا أبواب الجنة.","en":"Blessed Friday! O Allah, on this Friday, grant us prayers that are answered, provide us with blessings beyond measure, and open for us the gates of Paradise."},"features":["send-greeting","share-card","optional-weekly-reminder"],"giftSuggestions":[],"note":"A weekly Islamic observance/greeting, not an annual public holiday. Gifts or purchases are not customary requirements.","group":"faith","emoji":"🌹"},{"id":"umrah-mubarak","category":"pilgrimage-milestone","name":{"en":"Umrah Mubarak","ar":"عمرة مباركة"},"subtitle":{"en":"Blessings on your Umrah","ar":"تقبل الله عمرتك"},"recurrence":{"kind":"user-specified-date"},"greeting":{"ar":"عمرة مباركة! تقبل الله عمرتك، وغفر ذنبك، وكتب لك الأجر.","en":"Blessings on your Umrah! May Allah accept your pilgrimage, forgive your sins, and reward you."},"features":["send-greeting","share-card","optional-milestone-reminder"],"giftSuggestions":["congratulations-card","dates","flowers"],"note":"Umrah is a pilgrimage, not a fixed annual holiday; the sender chooses the relevant date.","group":"faith","emoji":"🕋"},{"id":"birthday","group":"personal","emoji":"🎂","category":"personal","name":{"en":"Birthday","ar":"عيد ميلاد"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"anniversary","group":"personal","emoji":"🥂","category":"personal","name":{"en":"Anniversary","ar":"ذكرى سنوية"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"congratulations","group":"personal","emoji":"🎉","category":"personal","name":{"en":"Congratulations","ar":"تهانينا"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"thank-you","group":"personal","emoji":"💐","category":"personal","name":{"en":"Thank You","ar":"شكرًا لك"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"graduation","group":"personal","emoji":"🎓","category":"personal","name":{"en":"Graduation","ar":"التخرج"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"new-baby","group":"personal","emoji":"🧸","category":"personal","name":{"en":"New Baby","ar":"مولود جديد"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"get-well","group":"personal","emoji":"🌷","category":"personal","name":{"en":"Get Well Soon","ar":"الشفاء العاجل"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Wishing you a gentle recovery, comfort, and all the care you deserve.","ar":"أتمنى لك الشفاء العاجل والراحة وكل الرعاية التي تستحقها."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"just-because","group":"personal","emoji":"💌","category":"personal","name":{"en":"Just Because","ar":"لأنك غالٍ"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"eid-fitr","group":"holidays","emoji":"🌙","category":"holidays","name":{"en":"Eid al-Fitr","ar":"عيد الفطر"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"eid-adha","group":"holidays","emoji":"🐑","category":"holidays","name":{"en":"Eid al-Adha","ar":"عيد الأضحى"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"ramadan","group":"holidays","emoji":"⭐","category":"holidays","name":{"en":"Ramadan Mubarak","ar":"رمضان مبارك"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"new-year","group":"holidays","emoji":"🎆","category":"holidays","name":{"en":"New Year","ar":"العام الجديد"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"christmas","group":"holidays","emoji":"🎄","category":"holidays","name":{"en":"Christmas","ar":"عيد الميلاد المجيد"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"diwali","group":"holidays","emoji":"🪔","category":"holidays","name":{"en":"Diwali","ar":"ديوالي"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"lunar-new-year","group":"holidays","emoji":"🧧","category":"holidays","name":{"en":"Lunar New Year","ar":"رأس السنة القمرية"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"thanksgiving","group":"holidays","emoji":"🍂","category":"holidays","name":{"en":"Thanksgiving","ar":"عيد الشكر"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"hajj","group":"faith","emoji":"🕋","category":"faith","name":{"en":"Hajj Mubarak","ar":"حج مبرور"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"prayers","group":"faith","emoji":"🤲","category":"faith","name":{"en":"Blessings & Prayer","ar":"دعوات وبركات"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"i-miss-you","group":"love","emoji":"💞","category":"love","name":{"en":"I Miss You","ar":"أشتاق إليك"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"valentine","group":"love","emoji":"💝","category":"love","name":{"en":"Valentine's Day","ar":"عيد الحب"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"engagement","group":"love","emoji":"💍","category":"love","name":{"en":"Engagement","ar":"الخطوبة"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"wedding","group":"love","emoji":"💐","category":"love","name":{"en":"Wedding","ar":"الزفاف"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."},{"id":"custom","group":"custom","emoji":"✨","category":"custom","name":{"en":"My Own Occasion","ar":"مناسبة خاصة"},"subtitle":{"en":"A moment worth sharing","ar":"لحظة تستحق المشاركة"},"recurrence":{"kind":"user-specified-date"},"greeting":{"en":"Thinking of you on this special occasion. Sending you warmth, joy, and heartfelt wishes.","ar":"أفكر فيك في هذه المناسبة الخاصة وأرسل إليك أطيب الأمنيات بالفرح والمحبة."},"features":["send-greeting","share-card","optional-reminder"],"giftSuggestions":[],"note":"Personalize this greeting with FalahwAI. Add a date only if you want a calendar reminder; holiday dates are not calculated automatically."}]}</script>
 <script type="application/json" id="love-notes-json">{"schemaVersion":1,"source":"Original writing for Smart Greetings","notes":[{"id":"midnight-glance","title":"The Look","mood":"slow-burn","en":"You don't have to touch me to undo me. One look across the room, and every sensible thought forgets its name.","ar":"لا تحتاج إلى لمسي كي تربكني. نظرة واحدة منك عبر الغرفة، فتنسى أفكاري كل ما كانت تنوي قوله."},{"id":"whisper-to-stars","title":"A Secret for the Stars","mood":"after-dark","en":"If the night asks what I want, I'll whisper your name—and let the stars blush.","ar":"إن سألني الليل عمّا أريد، همست باسمك… وتركت النجوم تخجل."},{"id":"almost-kiss","title":"That Second","mood":"tender","en":"My favorite place is the quiet second before your smile becomes a kiss.","ar":"أجمل مكان عندي هو تلك الثانية الهادئة، قبل أن تتحوّل ابتسامتك إلى قبلة."},{"id":"midnight-across","title":"Across the Water","mood":"long-distance","en":"Even oceans can't teach my heart the distance between us. It still reaches for you at midnight.","ar":"حتى البحار لا تستطيع أن تعلّم قلبي معنى البُعد بيننا؛ فما زال يمدّ يده إليك عند منتصف الليل."},{"id":"not-yet","title":"Not All the Way","mood":"slow-burn","en":"Come closer—not all the way. Let anticipation have its beautiful moment.","ar":"اقترب… لكن ليس تمامًا. دع للشوق لحظته الجميلة."},{"id":"lower-your-voice","title":"The Softest Hour","mood":"after-dark","en":"I saved the softest hour of the night for you, when even the moon lowers its voice.","ar":"خبّأت لك أرقّ ساعة في الليل، حين يخفض القمر صوته أيضًا."},{"id":"warmth","title":"Warmth","mood":"tender","en":"Your name feels like the first warmth after a long winter: unexpected, and exactly what I needed.","ar":"اسمك يشبه أول دفء بعد شتاء طويل؛ يأتي فجأة، وكأنه ما كنت أحتاج إليه."},{"id":"ordinary-evening","title":"One Ordinary Evening","mood":"long-distance","en":"I'd trade a thousand perfect sunsets for one ordinary evening beside you.","ar":"أستبدل ألف غروبٍ جميل بأمسية عادية واحدة إلى جوارك."},{"id":"lose-my-words","title":"Lost for Words","mood":"slow-burn","en":"The dangerous thing about your smile is how willingly I lose my train of thought.","ar":"أخطر ما في ابتسامتك أنني أفقد أفكاري أمامها… وبكل رضا."},{"id":"low-lights","title":"Leave the Lights Low","mood":"after-dark","en":"Leave the lights low. I want to remember the way your laughter changes the dark.","ar":"اترك الضوء خافتًا؛ أريد أن أتذكّر كيف تغيّر ضحكتك شكل العتمة."},{"id":"your-hand","title":"The World Makes Sense","mood":"tender","en":"I love the way your hand finds mine, as though the whole world has finally made sense.","ar":"أحبّ الطريقة التي تعثر بها يدك على يدي، وكأن العالم وجد معناه أخيرًا."},{"id":"message-arrives","title":"The Midnight Message","mood":"long-distance","en":"When your message arrives, even the midnight air feels closer to spring.","ar":"حين تصل رسالتك، أشعر أن هواء منتصف الليل يقترب من الربيع."},{"id":"between-hands","title":"Unfinished Conversation","mood":"slow-burn","en":"There is a whole conversation in the space between our hands, and neither of us is in a hurry to finish it.","ar":"بين يدينا حديث كامل لم ننطقه، ولا أحد منّا مستعجل على نهايته."},{"id":"our-little-secret","title":"A Little Secret","mood":"after-dark","en":"My favorite secret is how the room changes when you're near enough to whisper.","ar":"سرّي المفضّل هو كيف تتبدّل الغرفة كلها حين تقترب بما يكفي لتهمس."},{"id":"brave-enough","title":"Softness","mood":"tender","en":"You are the softness I never knew I was brave enough to ask for.","ar":"أنت الحنان الذي لم أعرف أنني أملك الشجاعة لأطلبه."},{"id":"through-screen","title":"Until I See You","mood":"long-distance","en":"Until I see you, I'll keep sending little pieces of my heart through the screen.","ar":"إلى أن أراك، سأظل أرسل إليك قطعًا صغيرة من قلبي عبر الشاشة."}]}</script>
 <script type="application/json" id="vendor-json">{"schemaVersion": 1, "vendors": [], "note": "No businesses or partnerships are represented. Add verified, approved vendor records here in a future release."}</script>
 <script>
@@ -228,7 +273,7 @@
   const symbols = { 'jumuah-mubarak': '🌹', 'umrah-mubarak': '🕋' };
   const giftLabels = { 'congratulations-card': 'Personalized card', dates: 'Dates', flowers: 'Flowers' };
   const greetingBanks = {"jumuah-mubarak":{"openings":[["Jumu'ah Mubarak! Wishing you a blessed Friday.","جمعة مباركة! أتمنى لك يوم جمعة مليئًا بالبركة."],["On this beautiful Friday, I am sending you heartfelt wishes.","في هذا اليوم الجميل من الجمعة، أرسل إليك أطيب الأمنيات."],["May this Friday be a day of peace and reflection.","أسأل الله أن يكون يوم الجمعة هذا يوم سكينة وتأمل."],["A little Friday blessing, sent with care.","دعوة طيبة في يوم الجمعة، أرسلها إليك بكل محبة."],["As Friday arrives, may goodness find its way to you.","مع حلول الجمعة، أسأل الله أن يأتيك الخير من كل باب."],["Jumu'ah Mubarak to you and everyone you love.","جمعة مباركة لك ولكل من تحب."],["Today, I am remembering you in my Friday wishes.","اليوم أذكرك في دعواتي الطيبة ليوم الجمعة."],["May the light of this Friday bring you comfort.","أسأل الله أن يحمل لك نور هذه الجمعة راحة وطمأنينة."]],"wishes":[["May Allah accept your prayers and ease your worries.","أسأل الله أن يتقبل دعاءك ويخفف همومك."],["May your home be filled with mercy and joy.","أسأل الله أن يملأ بيتك رحمة وفرحًا."],["May you find strength for every challenge and gratitude in every blessing.","أسأل الله أن يمنحك القوة أمام كل تحدٍ والشكر على كل نعمة."],["May your loved ones enjoy health, safety, and serenity.","أسأل الله أن ينعم على أحبتك بالصحة والسلامة والسكينة."],["May your heart be guided toward what brings you peace.","أسأل الله أن يهدي قلبك إلى ما فيه راحتك."],["May kindness return to you in unexpected ways.","أسأل الله أن يعود إليك الخير بطرق لم تتوقعها."],["May Allah grant you patience, clarity, and beautiful opportunities.","أسأل الله أن يرزقك الصبر والبصيرة والفرص الجميلة."],["May your sincere hopes be met with goodness.","أسأل الله أن يكتب الخير لأمانيك الصادقة."]],"closings":[["Have a calm and wonderful Friday.","أتمنى لك جمعة هادئة وجميلة."],["Keeping you in my thoughts and prayers today.","أذكرك اليوم بالخير والدعاء."],["May peace stay with you through the weekend.","أسأل الله أن ترافقك السكينة طوال عطلة نهاية الأسبوع."],["With warm wishes from the heart.","مع أطيب الأمنيات من القلب."],["May this be the start of a gentler week ahead.","لعلها بداية أسبوع أكثر لطفًا وراحة."],["Sending you love, light, and duas.","أرسل إليك المحبة والدعوات الطيبة."],["May today leave a little more hope in your heart.","أسأل الله أن يزيد هذا اليوم الأمل في قلبك."],["Wishing you and your family every good thing.","أتمنى لك ولعائلتك كل خير."]]},"umrah-mubarak":{"openings":[["Umrah Mubarak! May Allah accept your pilgrimage.","عمرة مباركة! تقبل الله عمرتك."],["Congratulations on this meaningful journey of Umrah.","هنيئًا لك هذه الرحلة المباركة لأداء العمرة."],["Sending heartfelt blessings for your Umrah.","أرسل إليك أصدق الدعوات بمناسبة عمرتك."],["What a beautiful milestone. Umrah Mubarak!","يا لها من محطة جميلة في حياتك. عمرة مباركة!"],["May your Umrah be filled with peace and reflection.","أسأل الله أن تكون عمرتك مليئة بالسكينة والتأمل."],["With joy for your journey, I wish you a blessed Umrah.","أشاركك فرحة رحلتك وأتمنى لك عمرة مباركة."],["Remembering you with kindness as you make your pilgrimage.","أذكرك بالدعوات الطيبة في رحلتك لأداء العمرة."],["A special blessing for a very special journey.","دعوة خاصة لرحلة مباركة ومميزة."]],"wishes":[["May every step bring you peace and renewed faith.","أسأل الله أن تحمل لك كل خطوة سكينة وتجددًا للإيمان."],["May Allah hear your sincere prayers and ease your heart.","أسأل الله أن يستجيب لدعائك الصادق ويطمئن قلبك."],["May your journey be safe, meaningful, and full of gratitude.","أسأل الله أن تكون رحلتك آمنة وعامرة بالمعنى والامتنان."],["May you find clarity, patience, and deep comfort in worship.","أسأل الله أن يرزقك الصفاء والصبر وراحة القلب في العبادة."],["May your loved ones share in the joy of this occasion.","أسأل الله أن يشاركك أحبتك فرحة هذه المناسبة."],["May Allah grant you good health throughout your travels.","أسأل الله أن يرزقك الصحة والعافية طوال سفرك."],["May your prayers be accompanied by hope and tranquility.","أسأل الله أن يرافق دعاءك الأمل والطمأنينة."],["May this experience leave lasting kindness in your life.","أسأل الله أن يبقى أثر هذه التجربة الطيب في حياتك."]],"closings":[["May you return with beautiful memories and a peaceful heart.","أسأل الله أن تعود بذكريات جميلة وقلب مطمئن."],["Wishing you blessings on the road and at home.","أتمنى لك البركة في رحلتك وعند عودتك."],["May this special moment stay with you for years to come.","أتمنى أن تبقى هذه اللحظة المباركة في ذاكرتك لسنوات."],["With warm wishes and heartfelt duas.","مع أطيب الأمنيات والدعوات من القلب."],["May your journey inspire many more moments of gratitude.","أسأل الله أن تلهمك رحلتك مزيدًا من لحظات الشكر."],["Sending love and blessings to you and your family.","أرسل المحبة والدعوات الطيبة لك ولعائلتك."],["May you carry its serenity into everyday life.","أسأل الله أن تحمل سكينتها معك في أيامك القادمة."],["Taqabbal Allah — may Allah accept it from you.","تقبل الله منك وكتب لك الأجر."]]}};
-  const state = { occasions: [], vendors: [], chosen: 'jumuah-mubarak', saved: [], generatedGreeting: null, lastVariantKey: '' };
+  const state = { occasions: [], vendors: [], chosen: 'jumuah-mubarak', saved: [], generatedGreeting: null, lastVariantKey: '', customTitle:'' };
   let toastTimer = null;
   let deferredInstallPrompt = null;
 
@@ -262,7 +307,10 @@
     if (textValue !== undefined) element.textContent = textValue;
     return element;
   }
-  const active = () => state.occasions.find(o => o.id === state.chosen) || state.occasions[0];
+  const active = () => {
+    const o=state.occasions.find(o=>o.id===state.chosen)||state.occasions[0];
+    return o?.id==='custom' && state.customTitle.trim() ? {...o,name:{en:state.customTitle.trim(),ar:'مناسبة خاصة'}} : o;
+  };
   const recipient = () => $('recipient-input').value.trim();
   const language = () => $('language-select').value;
   const prettyDate = date => new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
@@ -283,7 +331,21 @@
 
   function generateGreeting() {
     const bank = greetingBanks[state.chosen];
-    if (!bank) { toast('More wording for this occasion is coming soon.'); return; }
+    if (!bank) {
+      const o=active();
+      const starts=[['Warm wishes for '+o.name.en+'!','أطيب الأمنيات بمناسبة '+o.name.ar+'!'],
+        ['Sending you a thoughtful message today.','أرسل إليك اليوم رسالة مليئة بالمودة.'],
+        ['Some moments deserve a message from the heart.','بعض اللحظات تستحق رسالة صادقة من القلب.']];
+      const middles=[['May this day bring joy and beautiful memories.','أتمنى أن يحمل هذا اليوم الفرح والذكريات الجميلة.'],
+        ['Wishing you kindness, peace and plenty of reasons to smile.','أتمنى لك الخير والسلام وأسبابًا كثيرة للابتسام.'],
+        ['May you be surrounded by warmth and love.','أتمنى أن تحيط بك المودة والدفء والمحبة.']];
+      const ends=[['With warmest thoughts.','مع أطيب الأمنيات من القلب.'],
+        ['Thinking of you always.','أفكر فيك دائمًا بكل خير.'],
+        ['May the days ahead be beautiful.','أتمنى لك أيامًا قادمة جميلة.']];
+      const parts=[starts,middles,ends].map(group=>group[Math.floor(Math.random()*group.length)]);
+      state.generatedGreeting={en:parts.map(p=>p[0]).join(' '),ar:parts.map(p=>p[1]).join(' ')};
+      renderCard();toast('Fresh greeting ready ✨');return;
+    }
     let indexes, key;
     for (let tries = 0; tries < 12; tries++) {
       indexes = ['openings', 'wishes', 'closings'].map(part => Math.floor(Math.random() * bank[part].length));
@@ -332,6 +394,10 @@
   async function generateAIGreeting() {
     const button = $('ai-generate-button'), occasion = active();
     if (button.disabled || !occasion) return;
+    if(occasion.id==='custom' && !state.customTitle.trim()){
+      setAIStatus('First name your occasion — for example, First day at a new job.','error');
+      $('custom-occasion-input').focus();return;
+    }
     if (!navigator.onLine) {
       setAIStatus('AI needs internet. The free ✨ Another greeting button still works offline.', 'error');
       return;
@@ -399,27 +465,47 @@
     return output.join('\n').trim();
   }
 
-  function renderChoices() {
-    const parent = $('occasion-choices');
-    parent.replaceChildren();
-    state.occasions.forEach(occasion => {
-      const button = make('button', 'occasion-choice');
-      button.type = 'button';
-      button.dataset.occasion = occasion.id;
-      button.setAttribute('aria-pressed', String(occasion.id === state.chosen));
-      button.append(make('span', 'occasion-emoji', symbols[occasion.id] || '✨'));
-      const titles = make('span');
-      titles.append(make('strong', '', occasion.name.en), make('small', '', occasion.name.ar));
-      button.append(titles, make('span', 'occasion-selected', occasion.id === state.chosen ? '◉' : '○'));
-      parent.append(button);
-    });
+
+  const homeGroupNames={personal:'Personal',holidays:'Holidays',faith:'Faith & Milestones',love:'Love & Romance',custom:'Your own occasion'};
+  function renderHomeCategory(group,scroll=false){
+    document.querySelectorAll('[data-home-category]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.homeCategory===group)));
+    $('home-picker-title').textContent=homeGroupNames[group];
+    const list=$('home-occasion-list');list.replaceChildren();
+    if(group==='love'){
+      const love=make('button','home-occasion');love.type='button';love.dataset.goLove='1';
+      love.append(make('span','','♡'),make('strong','','Daily love notes →'));list.append(love);
+    }
+    for(const o of state.occasions.filter(o=>o.group===group)){
+      const btn=make('button','home-occasion');btn.type='button';btn.dataset.homeOccasion=o.id;
+      const label=make('strong','',o.name.en);label.append(make('small','',o.name.ar));
+      btn.append(make('span','',o.emoji||'✨'),label);list.append(btn);
+    }
+    if(scroll)$('home-picker').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function chooseOccasion(id){
+    if(!state.occasions.some(o=>o.id===id))return;
+    state.chosen=id;state.generatedGreeting=null;hideAIResult();renderCard();showTab('create');
+    if(id==='custom')setTimeout(()=>$('custom-occasion-input').focus({preventScroll:true}),50);
+  }
+
+  function renderChoices(){
+    const picker=$('occasion-choices');picker.replaceChildren();
+    for(const group of ['personal','holidays','faith','love','custom']){
+      const optgroup=make('optgroup');optgroup.label=homeGroupNames[group];
+      for(const o of state.occasions.filter(o=>o.group===group)){
+        const option=make('option','',(o.emoji||'✨')+' '+o.name.en);
+        option.value=o.id;optgroup.append(option);
+      }
+      picker.append(optgroup);
+    }
+    picker.value=state.chosen;
   }
 
   function renderCard() {
     const o = active();
     if (!o) return;
     renderChoices();
-    $('card-icon').textContent = symbols[o.id] || '✨';
+    $('card-icon').textContent = o.emoji || symbols[o.id] || '✨';
     $('card-ar-title').textContent = o.name.ar;
     $('card-en-title').textContent = o.name.en;
     $('card-ar-message').textContent = currentGreeting(o).ar;
@@ -432,10 +518,11 @@
     $('card-en-message').classList.toggle('hidden', arOnly);
     $('card-dedication').textContent = recipient() ? `${arOnly ? 'إلى' : 'For'} ${recipient()}` : '';
     $('date-group').classList.toggle('hidden', o.recurrence.kind === 'weekly');
+    $('custom-occasion-group').classList.toggle('hidden', o.id !== 'custom');
     if (o.recurrence.kind === 'weekly') $('next-occurrence').textContent = `Next Friday · ${prettyDate(nextFriday())}`;
     else $('next-occurrence').textContent = $('date-input').value
       ? `Selected · ${prettyDate(new Date(`${$('date-input').value}T12:00:00`))}`
-      : 'Choose your occasion date';
+      : 'Optional · add a date for a reminder';
     $('about-heading').textContent = o.name.en;
     $('about-occasion').textContent = o.note || '';
     $('gift-pills').replaceChildren();
@@ -453,10 +540,10 @@
     $('occasion-count').textContent = `${state.occasions.length} occasions`;
     state.occasions.forEach(o => {
       const card = make('article', 'library-card');
-      card.append(make('div', 'left-icon', symbols[o.id] || '✨'));
+      card.append(make('div', 'left-icon', o.emoji || symbols[o.id] || '✨'));
       const details = make('div', 'card-info');
       details.append(make('h3', '', o.name.en), make('p', '', o.name.ar));
-      details.append(make('small', '', o.recurrence.kind === 'weekly' ? 'Weekly · Friday' : 'Personal milestone · choose a date'));
+      details.append(make('small', '', o.recurrence.kind === 'weekly' ? 'Weekly · Friday' : 'Optional date · '+(homeGroupNames[o.group]||'Custom')));
       const button = make('button', '', 'Create →');
       button.type = 'button';
       button.dataset.useOccasion = o.id;
@@ -652,7 +739,7 @@
     if (tab === 'love') syncLoveToday();
     for (const el of document.querySelectorAll('.view')) el.classList.toggle('hidden', el.id !== `view-${tab}`);
     for (const el of document.querySelectorAll('.nav-item')) {
-      const selected = el.dataset.tab === tab;
+      const selected = el.dataset.tab === (tab === 'occasions' ? 'home' : tab);
       el.classList.toggle('selected', selected);
       if (selected) el.setAttribute('aria-current', 'page');
       else el.removeAttribute('aria-current');
@@ -694,6 +781,7 @@
     const entry = {
       id: typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : String(Date.now()),
       occasionId: o.id, recipient: recipient(), language: language(), date: $('date-input').value,
+      customTitle: o.id==='custom' ? state.customTitle.trim() : '',
       greeting: { ...currentGreeting(o) },
       created: new Date().toISOString()
     };
@@ -717,7 +805,7 @@
       if (!occasion) continue;
       const card = make('article', 'saved-card');
       const details = make('div', 'card-info');
-      details.append(make('h3', '', occasion.name.en));
+      details.append(make('h3', '', entry.customTitle || occasion.name.en));
       details.append(make('p', '', entry.recipient ? `For ${entry.recipient}` : 'A greeting made with love'));
       const date = new Date(entry.created);
       details.append(make('small', '', isNaN(date.getTime()) ? '' : prettyDate(date)));
@@ -746,7 +834,7 @@
     let date = nextFriday();
     if (!weekly) {
       const value = $('date-input').value;
-      if (!value) { toast('Choose an Umrah date first.'); $('date-input').focus(); return; }
+      if (!value) { toast('Choose a reminder date first.'); $('date-input').focus(); return; }
       date = new Date(`${value}T09:00:00`);
       if (isNaN(date.getTime())) { toast('Please choose a valid date.'); return; }
     }
@@ -774,21 +862,25 @@
   function wireEvents() {
     wireLoveEvents();
     document.querySelectorAll('.nav-item').forEach(el => el.addEventListener('click', () => showTab(el.dataset.tab)));
-    $('occasion-choices').addEventListener('click', event => {
-      const button = event.target.closest('[data-occasion]');
-      if (!button) return;
-      state.chosen = button.dataset.occasion;
-      state.generatedGreeting = null;
-      hideAIResult();
-      renderCard();
+    $('occasion-choices').addEventListener('change',event=>{
+      state.chosen=event.target.value;state.generatedGreeting=null;hideAIResult();renderCard();
+    });
+    document.querySelectorAll('[data-home-category]').forEach(el=>el.addEventListener('click',()=>renderHomeCategory(el.dataset.homeCategory,true)));
+    $('home-occasion-list').addEventListener('click',event=>{
+      const item=event.target.closest('[data-home-occasion]');
+      if(item)chooseOccasion(item.dataset.homeOccasion);
+      else if(event.target.closest('[data-go-love]'))showTab('love');
+    });
+    $('home-custom').addEventListener('click',()=>chooseOccasion('custom'));
+    $('home-browse').addEventListener('click',()=>showTab('occasions'));
+    $('custom-occasion-input').addEventListener('input',event=>{
+      state.customTitle=event.target.value.slice(0,90);
+      if(state.chosen==='custom'){state.generatedGreeting=null;hideAIResult();renderCard();}
     });
     $('occasion-library').addEventListener('click', event => {
       const button = event.target.closest('[data-use-occasion]');
       if (!button) return;
-      state.chosen = button.dataset.useOccasion;
-      state.generatedGreeting = null;
-      hideAIResult();
-      renderCard(); showTab('create');
+      chooseOccasion(button.dataset.useOccasion);
     });
     $('saved-list').addEventListener('click', event => {
       const remove = event.target.closest('[data-remove-saved]');
@@ -802,6 +894,8 @@
         const entry = state.saved.find(x => x.id === load.dataset.loadSaved);
         if (!entry) return;
         state.chosen = entry.occasionId;
+        state.customTitle = entry.customTitle || '';
+        $('custom-occasion-input').value = state.customTitle;
         state.generatedGreeting = entry.greeting && typeof entry.greeting.en === 'string' && typeof entry.greeting.ar === 'string' ? entry.greeting : null;
         hideAIResult();
         $('recipient-input').value = entry.recipient || '';
@@ -867,6 +961,7 @@
       loveState.selectedId = featuredLoveNote()?.id || null;
       renderLove();
       state.chosen = state.occasions[0]?.id || state.chosen;
+      renderHomeCategory('personal');
       renderCard(); renderLibrary(); renderVendors(); renderSaved();
     } catch (error) {
       console.error(error);
