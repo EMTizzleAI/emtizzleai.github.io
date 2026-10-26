@@ -199,7 +199,17 @@ $('launch-paid-app').addEventListener('click',async()=>{
     if(result.error)throw result.error;
     if(typeof result.data?.body!=='string'||!result.data.body.startsWith('<!doctype html>'))
       throw new Error('Your app could not be loaded. Please try again.');
-    const blobUrl=URL.createObjectURL(new Blob([result.data.body],{type:'text/html;charset=utf-8'}));
+    // Keep saved greetings from appearing in another account on the same device.
+    const uid=currentUserId;
+    if(!/^[a-f0-9-]{36}$/i.test(uid))throw new Error('Invalid account session.');
+    const savedMarker="const storageKey = 'smart-greetings:saved:v1';";
+    const favoritesMarker="const loveStorageKey = 'smart-greetings:love-favorites:v1';";
+    if(!result.data.body.includes(savedMarker)||!result.data.body.includes(favoritesMarker))
+      throw new Error('Secure app version mismatch. Contact support.');
+    const userBundle=result.data.body
+      .replace(savedMarker,"const storageKey = 'smart-greetings:saved:"+uid+"';")
+      .replace(favoritesMarker,"const loveStorageKey = 'smart-greetings:love-favorites:"+uid+"';");
+    const blobUrl=URL.createObjectURL(new Blob([userBundle],{type:'text/html;charset=utf-8'}));
     location.assign(blobUrl);
   }catch(error){
     setStatus('launch-status','Could not load your app: '+String(error.message||error).slice(0,170),'error');
