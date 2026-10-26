@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#101216">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="An independent, first-person professional review of Amergis, formerly Maxim Healthcare Staffing, describing a school-based practitioner's experience with onboarding, communication, and last-minute assignment uncertainty.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Amergis: A Professional Review | Your Time Is Not Disposable">
+  <meta property="og:description" content="An independent practitioner recounts an experience with Amergis staffing, onboarding, and communication.">
+  <meta property="og:site_name" content="Field Notes — Independent Practitioner Review">
+  <title>Amergis: A Professional Review — Your Time Is Not Disposable</title>
+  <style>
+    :root { --ink:#101216; --panel:#1a1d23; --panel2:#20242b; --muted:#a9a9ad; --white:#f7f3eb; --red:#ff655d; --red2:#e54b44; --line:#383b42; --yellow:#e6b66f; --max:1160px; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--ink); color:var(--white); font-family:Inter, ui-sans-serif, -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; line-height:1.6; }
+    a { color:inherit; }
+    a:focus-visible,button:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
+    ::selection { color:#111; background:var(--red); }
+    .wrap { width:min(calc(100% - 48px),var(--max)); margin:auto; }
+    .skip {position:absolute;top:-100px;left:8px;background:#fff;color:#000;padding:8px;z-index:99}.skip:focus{top:8px}
+    .topbar { border-bottom:1px solid #303239; background:#111318; }
+    .topbar .wrap { min-height:45px; display:flex; justify-content:space-between; align-items:center; gap:20px; text-transform:uppercase; font-size:10px; letter-spacing:.17em; font-weight:780; }
+    .topbar span:first-child { color:var(--red); }
+    .topbar span:last-child {color:#b3b3b8;}
+    header { position:relative; border-bottom:1px solid var(--line); }
+    .nav { min-height:76px; display:flex;justify-content:space-between;align-items:center; gap:20px; }
+    .mark {display:flex;align-items:center;gap:13px;text-decoration:none; font-weight:850; font-size:15px;letter-spacing:.07em;text-transform:uppercase;}
+    .logo {width:33px;height:33px;border:2px solid var(--red); display:grid;place-items:center; transform:rotate(-9deg); position:relative; }
+    .logo:after {content:"";position:absolute;width:26px;height:2px;background:var(--red);transform:rotate(-43deg)}
+    .logo i {width:8px;height:8px;border:2px solid var(--white);display:block;}
+    nav {display:flex;gap:24px;align-items:center;}
+    nav a {font-size:12px;text-decoration:none;color:#c4c4c5;font-weight:700;}
+    nav a:hover {color:var(--red)}
+    .nav .nav-cta {border:1px solid var(--line);padding:10px 14px;color:var(--white);}
+    .hero { min-height:600px; position:relative;overflow:hidden;display:flex;align-items:center; }
+    .hero:before {content:"";position:absolute;right:-7%;top:-30%;height:650px;width:650px;border-radius:50%;background:radial-gradient(circle,rgba(246,82,73,.12),rgba(246,82,73,0) 67%);pointer-events:none;}
+    .hero:after {content:"FIELD NOTE / 001";font-size:clamp(70px,13vw,185px);font-weight:900;line-height:1;letter-spacing:-.1em;position:absolute;bottom:-.3em;right:-.12em;white-space:nowrap;color:rgba(255,255,255,.025);pointer-events:none;}
+    .hero-grid {display:grid;grid-template-columns:minmax(0,1.7fr) minmax(220px,.75fr);gap:50px;align-items:center;padding-top:84px;padding-bottom:100px;position:relative;z-index:1;}
+    .eyebrow {display:flex;align-items:center;gap:12px; color:var(--red); font-size:12px;letter-spacing:.18em;font-weight:850;text-transform:uppercase;}
+    .eyebrow:before {content:"";width:24px;height:2px;background:var(--red)}
+    h1,h2,h3,p,blockquote{margin-top:0}
+    h1 {font-size:clamp(57px,8vw,109px);line-height:.97;letter-spacing:-.07em;font-weight:900;margin:25px 0 28px;max-width:790px;}
+    h1 em {font-style:normal;color:var(--red)}
+    .hero .lead {font-size:clamp(18px,2vw,23px);line-height:1.55;max-width:665px;color:#cbc9c8;margin-bottom:32px;}
+    .hero-buttons{display:flex;gap:15px;flex-wrap:wrap}
+    .button{display:inline-flex;justify-content:center;align-items:center;min-height:50px;padding:14px 20px;background:var(--red);color:#0f1116;font-weight:850;text-decoration:none;font-size:13px;letter-spacing:.02em;border:1px solid var(--red);cursor:pointer;}
+    .button:hover{background:#ff8a82;border-color:#ff8a82}
+    .button.secondary{background:transparent;color:var(--white);border-color:#6b6c71;}
+    .button.secondary:hover{border-color:var(--white);}
+    .hero-card {border:1px solid var(--line);background:linear-gradient(155deg,#25262a,#171a20);padding:30px 27px;transform:rotate(2deg);box-shadow:18px 18px 0 #16171b;}
+    .stamp {font-size:11px;letter-spacing:.17em;color:#a9a5a4;font-weight:850;text-transform:uppercase;padding-bottom:21px;border-bottom:1px solid var(--line)}
+    .verdict {font-size:clamp(35px,4.2vw,57px);font-weight:950;line-height:1;letter-spacing:-.045em;text-transform:uppercase;margin:27px 0 22px;color:var(--red)}
+    .hero-card p {font-size:14px;color:#c8c7c6;margin:0;}
+    .hero-card .meta {font-size:11px;margin-top:36px;letter-spacing:.06em;text-transform:uppercase;color:#8e9195}
+    .factstrip {border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#17191e;}
+    .facts {display:grid;grid-template-columns:repeat(3,1fr)}
+    .fact {padding:27px 26px;border-right:1px solid var(--line);}
+    .fact:first-child {padding-left:0}.fact:last-child{border-right:0}
+    .fact strong {display:block;font-size:18px;letter-spacing:-.02em}
+    .fact span{font-size:11px;display:block;color:#aeafb4;letter-spacing:.12em;text-transform:uppercase;font-weight:800;padding-top:7px;}
+    section {padding:104px 0;}
+    .section-kicker {text-transform:uppercase;color:var(--red);font-size:12px;letter-spacing:.18em;font-weight:850;margin-bottom:20px;}
+    .section-title {font-size:clamp(38px,5.5vw,72px);line-height:1.08;letter-spacing:-.06em;max-width:920px;margin-bottom:25px;}
+    .section-intro {font-size:19px;color:#b8b9bd;max-width:800px;line-height:1.65;}
+    .timeline {margin-top:53px;border-top:1px solid var(--line)}
+    .event {display:grid;grid-template-columns:130px minmax(0,1fr) minmax(0,.85fr);gap:30px;align-items:start;border-bottom:1px solid var(--line);padding:36px 0;}
+    .event .num {color:var(--red);font-size:15px;font-weight:850;letter-spacing:.08em;}
+    .event h3 {font-size:27px;line-height:1.2;letter-spacing:-.03em;margin:0;}
+    .event p {font-size:16px;color:#b9b9bd;margin:0;max-width:440px;}
+    .quote-band {background:var(--red);color:#15161b;padding:85px 0;position:relative;overflow:hidden;}
+    .quote-band blockquote {font-size:clamp(32px,5vw,65px);line-height:1.14;font-weight:900;letter-spacing:-.055em;max-width:960px;margin-bottom:22px;}
+    .quote-band cite {font-size:12px;letter-spacing:.14em;font-style:normal;font-weight:900;text-transform:uppercase;}
+    .grid {display:grid;grid-template-columns:repeat(2,1fr);gap:17px;margin-top:49px;}
+    .card{border:1px solid var(--line);padding:32px;background:#191c22;}
+    .card .icon {font-size:25px;color:var(--red);font-weight:900;line-height:1;margin-bottom:18px;}
+    .card h3 {font-size:23px;line-height:1.24;letter-spacing:-.025em;margin-bottom:12px;}
+    .card p{color:#b9bbc0;font-size:15px;margin:0;}
+    .checklist {background:#191b20;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .split {display:grid;grid-template-columns:1.1fr 1fr;gap:85px;align-items:start;}
+    .question-list {list-style:none;padding:0;margin:7px 0 0;}
+    .question-list li {border-bottom:1px solid #3c3f47;padding:16px 0 16px 27px;position:relative;font-size:17px;color:#e3e1dd}
+    .question-list li:first-child{border-top:1px solid #3c3f47}
+    .question-list li:before {content:"→";position:absolute;left:0;color:var(--red);font-weight:900;}
+    .context-box {border:1px solid var(--line);padding:32px;background:#1c1f25;}
+    .context-box p,.context-box li {color:#bdc0c6;font-size:14px;}
+    .context-box a{color:#ffc0b9;text-underline-offset:4px}
+    .context-box h3{font-size:18px;margin-bottom:10px}
+    .context-box p:last-child{margin-bottom:0}
+    .outro {text-align:center;}
+    .outro .section-title{margin:0 auto 26px}
+    .outro .section-intro {margin:0 auto 32px}
+    .tools {display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+    .button button {font:inherit}
+    .status {font-size:13px;color:#a9a9ad;min-height:19px;margin-top:14px}
+    footer {border-top:1px solid var(--line);padding:39px 0 50px;background:#111318;}
+    .footer-grid {display:flex;justify-content:space-between;gap:20px;align-items:center;color:#999ba0;font-size:12px;}
+    footer strong {color:var(--white);letter-spacing:.04em;text-transform:uppercase;}
+    @media(max-width:950px){.hero-grid{grid-template-columns:1fr;gap:55px}.hero-card{max-width:420px;transform:rotate(0)}.hero{min-height:auto}.event{grid-template-columns:75px 1fr;gap:16px}.event p{grid-column:2}.split{gap:30px}}
+    @media(max-width:680px){.wrap{width:min(calc(100% - 36px),var(--max))}.topbar .wrap{font-size:9px}.topbar span:last-child{display:none}.nav{min-height:66px}.mark{font-size:13px}.nav nav{gap:13px}.nav nav a{font-size:11px}.nav-cta{display:none}h1{font-size:clamp(55px,13vw,80px)}.hero-grid{padding:68px 0 88px}.hero .lead{font-size:18px}.hero-card{padding:25px}.facts{grid-template-columns:1fr}.fact,.fact:first-child{padding:20px 0;border-right:0;border-bottom:1px solid var(--line)}.fact:last-child{border-bottom:0}.fact span{padding-top:2px}section{padding:76px 0}.event{grid-template-columns:40px 1fr;padding:25px 0}.event h3{font-size:23px}.event p{font-size:15px}.quote-band{padding:65px 0}.grid{grid-template-columns:1fr}.split{grid-template-columns:1fr;gap:40px}.context-box{padding:24px}.footer-grid{flex-direction:column;align-items:start}.button{width:100%}.hero-buttons{display:grid;grid-template-columns:1fr}.tools{display:grid}.section-title{font-size:43px}}
+    @media(prefers-reduced-motion: reduce) {html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+    @media print { :root{--ink:#fff;--white:#111;--panel:#fff;--line:#ccc}body{background:white;color:#111}.topbar,nav,.hero-card,.tools,.quote-band{display:none}.hero-grid{display:block;padding:20px 0}section{padding:35px 0}.factstrip,.checklist,footer{background:white}.card,.context-box{background:white;color:#111}.event p,.card p,.section-intro,.context-box p,.question-list li{color:#222}.section-kicker,.eyebrow,.event .num{color:#991c17}h1 em{color:#991c17}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to review</a>
+  <div class="topbar"><div class="wrap"><span>Independent practitioner review</span><span>Personal experience · Not affiliated with Amergis</span></div></div>
+  <header><div class="wrap nav"><a class="mark" href="#top" aria-label="Field Notes home"><span class="logo" aria-hidden="true"><i></i></span><span>Field Notes<span style="color:var(--red)">.</span></span></a><nav aria-label="Main navigation"><a href="#experience">My experience</a><a href="#standards">What needs to change</a><a class="nav-cta" href="#takeaway">Read the takeaway ↗</a></nav></div></header>
+  <main id="main">
+    <div id="top" class="hero"><div class="wrap hero-grid"><div>
+      <div class="eyebrow">Professional review / October 26, 2026</div>
+      <h1>My review of <em>Amergis.</em></h1>
+      <p class="lead">I went to work to support students. Instead, I found myself navigating administrative chaos, disrespectful communication, and last-minute uncertainty about my assignment. <strong style="color:var(--white)">My time is not disposable.</strong></p>
+      <div class="hero-buttons"><a class="button" href="#experience">Read what happened <span aria-hidden="true" style="padding-left:14px">↘</span></a><a class="button secondary" href="#takeaway">My recommendation</a></div>
+    </div><aside class="hero-card" aria-label="Review summary"><div class="stamp">Review at a glance / 01</div><div class="verdict">I do not<br>recommend.</div><p>Based on my firsthand experience, I would urge healthcare and education professionals to think carefully before accepting an assignment through this agency.</p><div class="meta">Independent opinion · School-based staffing</div></aside></div></div>
+    <div class="factstrip"><div class="wrap facts"><div class="fact"><strong>Amergis</strong><span>Company reviewed</span></div><div class="fact"><strong>Formerly Maxim Healthcare Staffing</strong><span>Rebranded in April 2024</span></div><div class="fact"><strong>One practitioner's account</strong><span>Firsthand experience, not a company-wide finding</span></div></div></div>
+    <section id="experience"><div class="wrap"><div class="section-kicker">01 / My experience</div><h2 class="section-title">Professional people deserve professional treatment.</h2><p class="section-intro">I accepted school-based work through Amergis with the expectation that the agency would understand my qualifications, communicate directly, and respect the time required to show up for students. My experience fell far short of that standard.</p>
+      <div class="timeline"><div class="event"><div class="num">01 —</div><h3>My experience should have mattered.</h3><p>I brought a background in emergency medical services and work supporting people with behavioral and educational needs. I did not feel my résumé, qualifications, or perspective were taken seriously.</p></div>
+      <div class="event"><div class="num">02 —</div><h3>Onboarding was exhausting.</h3><p>What should have been a straightforward process felt unnecessarily prolonged and disorganized. There were repeated communications and administrative frustrations. It felt like it took five years just to get onboarded.</p></div>
+      <div class="event"><div class="num">03 —</div><h3>The confusion cost me time and peace of mind.</h3><p>Every unclear instruction and avoidable delay has a real cost for someone trying to work, plan their schedule, and earn a living. I felt my time and financial realities were disregarded.</p></div>
+      <div class="event"><div class="num">04 —</div><h3>Then came the 7:30 a.m. call.</h3><p>On October 26, 2026, shortly before a scheduled school assignment, I received a call saying the agency was not comfortable having me report. I asked for a clear explanation. The conversation left me without the straightforward answers I needed about that assignment.</p></div></div>
+    </div></section>
+    <div class="quote-band"><div class="wrap"><blockquote>“If your business depends on practitioners showing up for people, you cannot treat those practitioners as expendable.”</blockquote><cite>My view as a school-based practitioner and EMS professional</cite></div></div>
+    <section id="standards"><div class="wrap"><div class="section-kicker">02 / A bigger problem</div><h2 class="section-title">Respect autistic practitioners, too.</h2><p class="section-intro">I am an autistic professional. It is especially painful to deal with an organization that places people in autism- and behavioral-support roles while feeling misunderstood, scrutinized, and dismissed in my own professional interactions. My criticism is of how I was treated—not of the students, teachers, or other frontline staff doing the work.</p>
+      <div class="grid"><article class="card"><div class="icon">↗</div><h3>Read the résumé.</h3><p>Recognize relevant experience before treating a qualified practitioner like an unknown quantity.</p></article><article class="card"><div class="icon">↗</div><h3>Communicate plainly.</h3><p>Confirm assignments, changes, and employment decisions directly—and in writing.</p></article><article class="card"><div class="icon">↗</div><h3>Honor people's time.</h3><p>Last-minute changes are not abstract scheduling problems. They affect real people and their livelihoods.</p></article><article class="card"><div class="icon">↗</div><h3>Practice the inclusion you advertise.</h3><p>Neurodivergent staff deserve the same dignity and professional respect that an education staffing company says it values.</p></article></div>
+    </div></section>
+    <section class="checklist"><div class="wrap split"><div><div class="section-kicker">03 / Before you sign on</div><h2 class="section-title">Ask for the details in writing.</h2><p class="section-intro">My experience is my own. If you are considering an Amergis assignment, protect your time and evaluate the arrangement for yourself.</p></div><ul class="question-list"><li>Is my assignment confirmed, including location and start time?</li><li>Who makes placement and cancellation decisions?</li><li>What happens if a shift is cancelled at the last minute?</li><li>How is my time recorded and approved?</li><li>Who will clarify my employment status in writing?</li></ul></div></section>
+    <section id="takeaway" class="outro"><div class="wrap"><div class="section-kicker">04 / My conclusion</div><h2 class="section-title">I wouldn't recommend Amergis.</h2><p class="section-intro">I felt disrespected, poorly communicated with, and let down by an agency that should know better. Healthcare and education workers have choices. <strong style="color:var(--white)">I would make a different one.</strong></p><div class="tools"><button type="button" class="button" id="shareBtn">Share this review ↗</button><button type="button" class="button secondary" id="printBtn">Print / save as PDF</button></div><div id="status" class="status" role="status" aria-live="polite"></div></div></section>
+    <section style="padding:25px 0 80px"><div class="wrap"><div class="context-box"><h3>About this review and company name</h3><p>This page is an <strong>independent, first-person account</strong>. It is not operated, endorsed, or affiliated with Amergis or any school district. It records one practitioner's recollections, perceptions, and opinions, and does not claim to establish a pattern affecting other workers.</p><p>Amergis is the name adopted by <strong>Maxim Healthcare Staffing</strong> in April 2024; it should not be confused with the separately branded <strong>Maxim Healthcare Services</strong>. <a href="https://www.amergis.com/resources/company-news/maxim-healthcare-staffing-is-now-amergis/" target="_blank" rel="noopener noreferrer">Read Amergis's announcement of its rebrand ↗</a></p><p>Published as a personal review, October 26, 2026. The specific account above is based on the author's own report and has not been independently verified.</p></div></div></section>
+  </main>
+  <footer><div class="wrap footer-grid"><div><strong>Field Notes.</strong><div>Respect the people doing the work.</div></div><div>Independent review · Not an official Amergis website · © 2026</div></div></footer>
+  <script>
+    document.getElementById('printBtn').addEventListener('click', function(){window.print()});
+    document.getElementById('shareBtn').addEventListener('click', async function(){
+      const status=document.getElementById('status');
+      const data={title:'Amergis: A Professional Review',text:'A firsthand practitioner review of Amergis staffing.',url:location.href};
+      try{
+        if(navigator.share){await navigator.share(data);status.textContent='Share sheet opened.';}
+        else if(navigator.clipboard&&location.protocol.startsWith('http')){await navigator.clipboard.writeText(data.url);status.textContent='Review link copied.';}
+        else{status.textContent='Publish this page online first, then share its URL.';}
+      }catch(e){if(e.name!=='AbortError')status.textContent='Could not share automatically. Copy the page address instead.';}
+    });
+  </script>
+</body>
+</html>
