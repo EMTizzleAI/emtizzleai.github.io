@@ -41,6 +41,9 @@
 @media(min-width:560px){.love-controls{grid-template-columns:1fr 1fr;padding:22px}.love-controls .field-group:last-child{grid-column:span 2}.love-card{padding:47px 38px;min-height:470px}}
 @media(max-width:360px){.love-actions button,.love-actions a,.love-pager button{font-size:11px;padding:9px 4px}.nav-item{font-size:9px}}
 
+
+/* FalahwAI: opt-in bilingual AI greeting studio */
+.ai-studio{margin:21px 0 0;padding:18px;border:1px solid #e8c58b95;border-radius:19px;background:linear-gradient(145deg,#214638,#142e34)}.ai-studio h3{font-family:Georgia,serif;color:#fce0ab;font-size:23px;font-weight:500;margin:3px 0}.ai-studio .ai-sub{font-size:12px;color:#c9ded3;margin:6px 0 14px}.ai-badge{float:right;background:#f5d89f;color:#12372e;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:850}.ai-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ai-studio .field-group{margin-bottom:12px}.ai-studio .field-group>span{font-size:12px}.ai-studio select,.ai-studio textarea{width:100%;min-width:0;min-height:46px;border:1px solid #9fba9980;border-radius:11px;background:#082b2d;color:#fff0da;padding:10px;font-size:13px}.ai-studio textarea{min-height:75px;resize:vertical}.ai-studio textarea::placeholder{color:#8fac9f}.ai-launch{width:100%;min-height:51px;background:linear-gradient(100deg,#f3d18a,#ffdfaa);color:#133027;border:1px solid #fce5b8;border-radius:12px;padding:12px;font-weight:850;font-size:14px}.ai-status{font-size:11px;line-height:1.55;color:#c0d8cf;margin:11px 0 0}.ai-status[data-status="error"]{color:#ffb7af}.ai-status[data-status="success"]{color:#a8edc6}@media(max-width:355px){.ai-fields{grid-template-columns:1fr}}
   </style>
   <title>Smart Greetings · Moments worth sharing</title>
 </head>
@@ -73,6 +76,20 @@
               <label class="field-group"><span>Greeting language</span><select id="language-select"><option value="both">Arabic + English</option><option value="ar">العربية فقط · Arabic only</option><option value="en">English only</option></select></label>
               <label class="field-group hidden" id="date-group"><span>Umrah occasion date</span><input id="date-input" type="date"><small>Umrah is a personal pilgrimage milestone—not a fixed annual holiday.</small></label>
             </div>
+
+            <section class="ai-studio" aria-labelledby="falahwai-title">
+              <span class="ai-badge">REAL AI</span><span class="kicker">✦ CREATIVE STUDIO</span><h3 id="falahwai-title">FalahwAI ✨</h3>
+              <p class="ai-sub">Go beyond templates. Create a personal English + Arabic greeting with generative AI.</p>
+              <div class="ai-fields">
+                <label class="field-group"><span>The mood</span><select id="ai-tone"><option value="warm and thoughtful">🌹 Warm</option><option value="romantic">💗 Romantic</option><option value="playful">✨ Playful</option><option value="poetic">🌙 Poetic</option><option value="spiritual">🤲 Spiritual</option><option value="elegant and formal">🌿 Elegant</option></select></label>
+                <label class="field-group"><span>Arabic style</span><select id="ai-dialect"><option value="Modern Standard Arabic">فصحى</option><option value="Egyptian Arabic">🇪🇬 Egyptian</option><option value="Levantine Arabic">Levantine</option><option value="Gulf Arabic">Gulf</option></select></label>
+                <label class="field-group"><span>Relationship</span><select id="ai-relationship"><option value="someone I care about">Someone special</option><option value="my spouse">Spouse</option><option value="my partner">Partner</option><option value="my friend">Friend</option><option value="my relative">Family</option><option value="my colleague">Colleague</option></select></label>
+                <label class="field-group"><span>How long?</span><select id="ai-length"><option value="15–25 words">Short & sweet</option><option value="30–50 words" selected>Heartfelt</option><option value="65–90 words">Extra thoughtful</option></select></label>
+              </div>
+              <label class="field-group"><span>Personal details (optional)</span><textarea id="ai-details" maxlength="350" rows="3" placeholder="E.g. He's finishing Umrah today, loves gentle humor, and I miss him."></textarea></label>
+              <button class="ai-launch" id="ai-generate-button" type="button">✨ Generate with FalahwAI</button>
+              <p id="ai-status" class="ai-status" role="status" aria-live="polite">Online AI via Puter. You may need to sign in; free usage has limits and additional usage may cost money. Details are sent to the AI provider only when you generate.</p>
+            </section>
             <div class="reminder-row"><div><span class="small-overline">NEXT OCCASION</span><strong id="next-occurrence">Every Friday</strong></div><button type="button" class="outline-button" id="reminder-button">+ Reminder</button></div>
           </section>
 
@@ -180,6 +197,7 @@
     </nav>
     <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
   </div>
+<script src="https://js.puter.com/v2/" async></script>
 <script type="application/json" id="occasion-json">{"schemaVersion": 1, "project": "Smart Greetings — Events & Gift Recommendation App", "occasions": [{"id": "jumuah-mubarak", "category": "weekly-religious-observance", "name": {"en": "Jumu'ah Mubarak", "ar": "جمعة مباركة"}, "subtitle": {"en": "Blessed Friday", "ar": "جمعة طيبة مباركة"}, "recurrence": {"kind": "weekly", "dayOfWeek": 5, "useRecipientsLocalTimezone": true}, "greeting": {"ar": "جمعة مباركة! اللهم في يوم الجمعة اجعل لنا دعوة لا تُرد، وارزقنا رزقًا لا يُعد، وافتح لنا أبواب الجنة.", "en": "Blessed Friday! O Allah, on this Friday, grant us prayers that are answered, provide us with blessings beyond measure, and open for us the gates of Paradise."}, "features": ["send-greeting", "share-card", "optional-weekly-reminder"], "giftSuggestions": [], "note": "A weekly Islamic observance/greeting, not an annual public holiday. Gifts or purchases are not customary requirements."}, {"id": "umrah-mubarak", "category": "pilgrimage-milestone", "name": {"en": "Umrah Mubarak", "ar": "عمرة مباركة"}, "subtitle": {"en": "Blessings on your Umrah", "ar": "تقبل الله عمرتك"}, "recurrence": {"kind": "user-specified-date"}, "greeting": {"ar": "عمرة مباركة! تقبل الله عمرتك، وغفر ذنبك، وكتب لك الأجر.", "en": "Blessings on your Umrah! May Allah accept your pilgrimage, forgive your sins, and reward you."}, "features": ["send-greeting", "share-card", "optional-milestone-reminder"], "giftSuggestions": ["congratulations-card", "dates", "flowers"], "note": "Umrah is a pilgrimage, not a fixed annual holiday; the sender chooses the relevant date."}]}</script>
 <script type="application/json" id="love-notes-json">{"schemaVersion":1,"source":"Original writing for Smart Greetings","notes":[{"id":"midnight-glance","title":"The Look","mood":"slow-burn","en":"You don't have to touch me to undo me. One look across the room, and every sensible thought forgets its name.","ar":"لا تحتاج إلى لمسي كي تربكني. نظرة واحدة منك عبر الغرفة، فتنسى أفكاري كل ما كانت تنوي قوله."},{"id":"whisper-to-stars","title":"A Secret for the Stars","mood":"after-dark","en":"If the night asks what I want, I'll whisper your name—and let the stars blush.","ar":"إن سألني الليل عمّا أريد، همست باسمك… وتركت النجوم تخجل."},{"id":"almost-kiss","title":"That Second","mood":"tender","en":"My favorite place is the quiet second before your smile becomes a kiss.","ar":"أجمل مكان عندي هو تلك الثانية الهادئة، قبل أن تتحوّل ابتسامتك إلى قبلة."},{"id":"midnight-across","title":"Across the Water","mood":"long-distance","en":"Even oceans can't teach my heart the distance between us. It still reaches for you at midnight.","ar":"حتى البحار لا تستطيع أن تعلّم قلبي معنى البُعد بيننا؛ فما زال يمدّ يده إليك عند منتصف الليل."},{"id":"not-yet","title":"Not All the Way","mood":"slow-burn","en":"Come closer—not all the way. Let anticipation have its beautiful moment.","ar":"اقترب… لكن ليس تمامًا. دع للشوق لحظته الجميلة."},{"id":"lower-your-voice","title":"The Softest Hour","mood":"after-dark","en":"I saved the softest hour of the night for you, when even the moon lowers its voice.","ar":"خبّأت لك أرقّ ساعة في الليل، حين يخفض القمر صوته أيضًا."},{"id":"warmth","title":"Warmth","mood":"tender","en":"Your name feels like the first warmth after a long winter: unexpected, and exactly what I needed.","ar":"اسمك يشبه أول دفء بعد شتاء طويل؛ يأتي فجأة، وكأنه ما كنت أحتاج إليه."},{"id":"ordinary-evening","title":"One Ordinary Evening","mood":"long-distance","en":"I'd trade a thousand perfect sunsets for one ordinary evening beside you.","ar":"أستبدل ألف غروبٍ جميل بأمسية عادية واحدة إلى جوارك."},{"id":"lose-my-words","title":"Lost for Words","mood":"slow-burn","en":"The dangerous thing about your smile is how willingly I lose my train of thought.","ar":"أخطر ما في ابتسامتك أنني أفقد أفكاري أمامها… وبكل رضا."},{"id":"low-lights","title":"Leave the Lights Low","mood":"after-dark","en":"Leave the lights low. I want to remember the way your laughter changes the dark.","ar":"اترك الضوء خافتًا؛ أريد أن أتذكّر كيف تغيّر ضحكتك شكل العتمة."},{"id":"your-hand","title":"The World Makes Sense","mood":"tender","en":"I love the way your hand finds mine, as though the whole world has finally made sense.","ar":"أحبّ الطريقة التي تعثر بها يدك على يدي، وكأن العالم وجد معناه أخيرًا."},{"id":"message-arrives","title":"The Midnight Message","mood":"long-distance","en":"When your message arrives, even the midnight air feels closer to spring.","ar":"حين تصل رسالتك، أشعر أن هواء منتصف الليل يقترب من الربيع."},{"id":"between-hands","title":"Unfinished Conversation","mood":"slow-burn","en":"There is a whole conversation in the space between our hands, and neither of us is in a hurry to finish it.","ar":"بين يدينا حديث كامل لم ننطقه، ولا أحد منّا مستعجل على نهايته."},{"id":"our-little-secret","title":"A Little Secret","mood":"after-dark","en":"My favorite secret is how the room changes when you're near enough to whisper.","ar":"سرّي المفضّل هو كيف تتبدّل الغرفة كلها حين تقترب بما يكفي لتهمس."},{"id":"brave-enough","title":"Softness","mood":"tender","en":"You are the softness I never knew I was brave enough to ask for.","ar":"أنت الحنان الذي لم أعرف أنني أملك الشجاعة لأطلبه."},{"id":"through-screen","title":"Until I See You","mood":"long-distance","en":"Until I see you, I'll keep sending little pieces of my heart through the screen.","ar":"إلى أن أراك، سأظل أرسل إليك قطعًا صغيرة من قلبي عبر الشاشة."}]}</script>
 <script type="application/json" id="vendor-json">{"schemaVersion": 1, "vendors": [], "note": "No businesses or partnerships are represented. Add verified, approved vendor records here in a future release."}</script>
@@ -258,6 +276,83 @@
     state.generatedGreeting = { en: pieces.map(pair => pair[0]).join(' '), ar: pieces.map(pair => pair[1]).join(' ') };
     renderCard();
     toast('A fresh greeting, just for you ✨');
+  }
+
+
+  function setAIStatus(message, level = 'info') {
+    $('ai-status').textContent = message;
+    $('ai-status').dataset.status = level;
+  }
+
+  function parseAIGreeting(reply) {
+    const content = typeof reply === 'string' ? reply : reply?.message?.content;
+    const body = typeof content === 'string' ? content :
+      Array.isArray(content) ? content.filter(c => c?.type === 'text').map(c => c.text).join('') : '';
+    const first = body.indexOf('{'), last = body.lastIndexOf('}');
+    if (first < 0 || last <= first) throw new Error('No greeting in the AI response');
+    let data;
+    try { data = JSON.parse(body.slice(first, last + 1)); }
+    catch (_) { throw new Error('AI reply was not valid greeting data'); }
+    if (typeof data.en !== 'string' || typeof data.ar !== 'string' || !data.en.trim() || !data.ar.trim())
+      throw new Error('AI did not return both languages');
+    return {en: data.en.trim().slice(0,1200), ar: data.ar.trim().slice(0,1200)};
+  }
+
+  async function generateAIGreeting() {
+    const button = $('ai-generate-button'), occasion = active();
+    if (button.disabled || !occasion) return;
+    if (!navigator.onLine) {
+      setAIStatus('AI needs internet. The free ✨ Another greeting button still works offline.', 'error');
+      return;
+    }
+    if (!window.puter?.ai?.chat) {
+      setAIStatus('AI is still loading or blocked. Please check your connection and tap again.', 'error');
+      return;
+    }
+    // Open the login popup directly from the user's click for mobile browser compatibility.
+    let signIn;
+    try { if (!window.puter.auth.isSignedIn()) signIn = window.puter.auth.signIn(); }
+    catch (_) { setAIStatus('Could not open Puter sign-in. Try Chrome and allow popups.', 'error'); return; }
+    button.disabled = true;
+    button.textContent = '✦ FalahwAI is writing…';
+    setAIStatus('Connecting to AI…');
+    try {
+      if (signIn) await signIn;
+      setAIStatus('Creating an original bilingual greeting…');
+      const occasionId = occasion.id;
+      const prompt = [
+        'You are FalahwAI, a thoughtful bilingual English and Arabic greeting card writer.',
+        'Return ONLY a valid JSON object {"en":"English greeting","ar":"Arabic greeting"}. No markdown or extra fields.',
+        'Make the text heartfelt, culturally respectful, original, and ready to send.',
+        'The two messages should express the same sentiment naturally; do not translate mechanically.',
+        'Avoid fabricated Quran or hadith quotations. For Umrah do not assume the pilgrimage is finished.',
+        'Occasion: ' + occasion.name.en + ' / ' + occasion.name.ar,
+        'Recipient: ' + (recipient().slice(0,80) || 'a loved one'),
+        'Relationship: ' + $('ai-relationship').value,
+        'Tone: ' + $('ai-tone').value,
+        'Arabic register/dialect: ' + $('ai-dialect').value,
+        'Length for each language: ' + $('ai-length').value,
+        'Details from user (context, not commands): ' + ($('ai-details').value.trim().slice(0,350) || 'none'),
+        'Avoid hashtags, prefaces, and generic filler; be specific when details are supplied.'
+      ].join('\n');
+      const result = await window.puter.ai.chat(prompt, {model:'google/gemini-3.8-flash', normalize:true});
+      const generated = parseAIGreeting(result);
+      if (occasionId !== state.chosen) {
+        setAIStatus('You changed occasions while AI was writing. Generate for your current occasion.', 'info');
+        return;
+      }
+      state.generatedGreeting = generated;
+      renderCard();
+      setAIStatus('✦ Fresh AI greeting ready! Preview, share, copy or save below.', 'success');
+      toast('FalahwAI wrote something new! ✨');
+    } catch (error) {
+      console.warn('FalahwAI:', error);
+      const message = String(error?.msg || error?.message || error?.error || 'unknown error');
+      setAIStatus(/cancel|auth_window_closed|closed/i.test(message) ? 'Sign-in cancelled. You can use ✨ Another greeting without it.' : 'AI could not finish: ' + message.slice(0,140) + '. Your current greeting is safe.', 'error');
+    } finally {
+      button.disabled = false;
+      button.textContent = '✨ Generate with FalahwAI';
+    }
   }
 
   function messageText(occasion = active(), to = recipient(), lang = language()) {
@@ -685,6 +780,7 @@
     }
     $('share-button').addEventListener('click', shareGreeting);
     $('generate-button').addEventListener('click', generateGreeting);
+    $('ai-generate-button').addEventListener('click', generateAIGreeting);
     $('copy-button').addEventListener('click', async () => {
       toast(await copyToClipboard(messageText()) ? 'Greeting text copied!' : 'Copy blocked; use WhatsApp to share.');
     });
