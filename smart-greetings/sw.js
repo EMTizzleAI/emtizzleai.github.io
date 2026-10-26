@@ -1,6 +1,6 @@
-/* Smart Greetings PWA offline cache */
-const CACHE_NAME = 'smart-greetings-v1';
-const APP_FILES = ['./','./index.html','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png'];
+/* Smart Greetings PWA offline cache · Love Notes update */
+const CACHE_NAME = 'smart-greetings-v2';
+const APP_FILES = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME)
     .then(cache => cache.addAll(APP_FILES))
@@ -20,18 +20,20 @@ self.addEventListener('fetch', event => {
   if (url.origin !== root.origin || !url.pathname.startsWith(root.pathname)) return;
   event.respondWith((async () => {
     const cache = await caches.open(CACHE_NAME);
-    const cached = await cache.match(request, {ignoreSearch:true});
-    if (cached) return cached;
-    try {
-      const response = await fetch(request);
-      if (response.ok) cache.put(request, response.clone());
-      return response;
-    } catch (error) {
-      if (request.mode === 'navigate') {
-        const fallback = await cache.match('./index.html');
-        if (fallback) return fallback;
+    // Prefer the latest published app while online, and the installed copy while offline.
+    if (request.mode === 'navigate') {
+      try {
+        const response = await fetch(request);
+        if (response.ok) await cache.put('./index.html', response.clone());
+        return response;
+      } catch (_) {
+        return (await cache.match('./index.html')) || (await cache.match('./'));
       }
-      throw error;
     }
+    const cached = await cache.match(request, {ignoreSearch: true});
+    if (cached) return cached;
+    const response = await fetch(request);
+    if (response.ok) cache.put(request, response.clone());
+    return response;
   })());
 });
