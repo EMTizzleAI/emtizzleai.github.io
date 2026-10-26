@@ -960,7 +960,7 @@
       loveState.dateKey = dateKeyToday();
       loveState.selectedId = featuredLoveNote()?.id || null;
       renderLove();
-      state.chosen = state.occasions[0]?.id || state.chosen;
+      state.chosen = state.occasions.find(o=>o.id==='birthday')?.id || state.occasions[0]?.id || state.chosen;
       renderHomeCategory('personal');
       renderCard(); renderLibrary(); renderVendors(); renderSaved();
     } catch (error) {
