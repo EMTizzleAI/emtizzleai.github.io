@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071c21">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Send thoughtful bilingual greetings for Fridays, Umrah, and meaningful occasions. Save your favorites and share across the distance.">
+  <meta name="application-name" content="Smart Greetings">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Smart Greetings">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <style>
+:root{color-scheme:dark;--bg:#06171b;--bg2:#0b262a;--surface:#0e2a30;--surface2:#10373a;--ink:#f5f1e8;--muted:#a3c2bc;--gold:#f4d89f;--mint:#94d7be;--line:rgba(231,212,170,.18);--content:1140px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100svh;background:radial-gradient(ellipse at 8% 0%,#173d38 0,transparent 37%),radial-gradient(ellipse at 95% 20%,#262e30 0,transparent 45%),var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}button,input,select{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.58}button,input,select,a{outline-offset:4px}a{color:inherit}h1,h2,h3,p{margin-top:0}.hidden{display:none!important}
+.masthead{position:sticky;z-index:25;top:0;background:rgba(5,22,25,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(243,215,151,.11)}.masthead-inner{max-width:var(--content);margin:auto;padding:13px 17px;display:flex;gap:10px;align-items:center;justify-content:space-between}.brand{display:flex;gap:10px;align-items:center}.brand-mark{position:relative;display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:linear-gradient(150deg,#20654d,#073130);border:1px solid #d5b87f66;color:var(--gold);font-family:Georgia,serif;font-size:34px;line-height:1}.brand-mark i{position:absolute;font-size:9px;font-style:normal;right:7px;top:5px}.brand strong{display:block;font-size:16px;font-weight:750;letter-spacing:-.03em}.brand span{display:block;color:#b9d6c7;font-size:10px;letter-spacing:.02em}.install-button{border:1px solid #c9b17a70;background:#22423b;color:#ffe5ae;border-radius:999px;padding:9px 14px;white-space:nowrap;font-size:12px;font-weight:750}.install-button span{font-weight:800;margin-right:4px}.main-container{max-width:var(--content);margin:auto;padding:0 17px 145px}.intro{text-align:center;padding:37px 7px 32px}.eyebrow{color:var(--mint);letter-spacing:.18em;text-transform:uppercase;font-size:10px;font-weight:800}.status-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#9ddcbe;vertical-align:middle;margin-right:5px;box-shadow:0 0 7px #6edfa6}.intro h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(37px,7vw,61px);font-weight:500;line-height:1.06;letter-spacing:-.045em;margin:14px 0}.intro em{color:var(--gold);font-weight:400}.intro p{color:#ccdbd4;max-width:480px;margin:auto;font-size:14px}.composer-layout{display:grid;gap:27px}.composer-panel{border:1px solid var(--line);border-radius:24px;background:linear-gradient(170deg,#123a3b,#0b222a);padding:20px 17px 19px;box-shadow:0 15px 35px #0004}.section-heading{display:flex;justify-content:space-between;align-items:end;gap:8px;margin-bottom:17px}.section-heading h2{font-size:20px;letter-spacing:-.035em;font-weight:710;margin:4px 0 0}.kicker{color:var(--mint);font-size:10px;letter-spacing:.18em;font-weight:850;text-transform:uppercase}.tiny-tag{border:1px solid #bfa97855;background:#d3bf7e12;color:#e0c997;font-size:10px;border-radius:999px;padding:6px 9px;white-space:nowrap}.occasion-choices{display:grid;gap:10px}.occasion-choice{width:100%;background:#09292f;border:1px solid #3f605b;border-radius:17px;padding:14px 13px;display:flex;text-align:left;align-items:center;gap:12px;color:inherit;min-height:75px}.occasion-choice[aria-pressed=true]{border-color:var(--gold);background:#24413d;box-shadow:inset 0 0 0 1px #f0daa83b}.occasion-emoji{display:grid;place-items:center;border-radius:12px;background:#ffffff0b;width:45px;height:45px;flex-shrink:0;font-size:25px}.occasion-choice strong{font-size:14px;display:block}.occasion-choice small{font-size:12px;display:block;color:#c5d9cf;margin-top:2px}.occasion-selected{margin-left:auto;color:var(--gold);font-size:21px}.field-grid{display:grid;gap:12px;margin-top:20px}.field-group{display:grid;gap:6px}.field-group>span{color:#e0e5dc;font-weight:650;font-size:13px}.field-group input,.field-group select{background:#072329;border:1px solid #44615c;border-radius:12px;color:#f4eee5;padding:12px 13px;width:100%;min-height:48px}.field-group input::placeholder{color:#789991}.field-group small{font-size:11px;color:var(--muted)}.reminder-row{border-top:1px solid var(--line);margin-top:22px;padding-top:18px;display:flex;align-items:center;justify-content:space-between;gap:9px}.small-overline{color:var(--muted);letter-spacing:.12em;font-size:10px;display:block}.reminder-row strong{display:block;margin-top:2px;font-size:13px}.outline-button{border:1px solid #a9a17d77;border-radius:11px;padding:10px 12px;background:#183933;color:#f6e4bc;font-size:12px;font-weight:750;white-space:nowrap}.preview-panel{min-width:0}.outside-heading{padding:0 3px}.greeting-card{position:relative;overflow:hidden;min-height:445px;background:radial-gradient(circle at 50% 22%,#c3aa6825,transparent 36%),linear-gradient(150deg,#17493e 0,#092c34 62%,#071f2a 100%);border:1px solid #d7bc8b9a;border-radius:25px;box-shadow:0 18px 48px #0006;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:36px 25px;color:#fbf6e9}.greeting-card:before,.greeting-card:after{position:absolute;content:"";pointer-events:none;inset:11px;border:1px solid #efd6a84a;border-radius:17px}.greeting-card:after{inset:19px;border-color:#efd6a824;border-radius:11px}.greeting-card>*{position:relative;z-index:1}.decor{letter-spacing:.15em;color:#d7be8eaa;font-size:12px}.decor-top{margin-bottom:11px}.decor-bottom{margin-top:14px}.card-icon{font-size:39px;margin-bottom:2px}.arabic-heading{font-size:clamp(28px,6vw,40px);line-height:1.75;font-family:"Noto Naskh Arabic","Amiri",serif;color:#f9dc9b;max-width:100%}.english-heading{font-family:Georgia,serif;font-weight:500;font-size:clamp(23px,4.5vw,29px);letter-spacing:-.02em;margin:0}.gold-divider{height:1px;width:78px;background:#efd59a;margin:20px 0}.dedication{font-size:13px;color:#f3d8a2;margin:0 0 5px;overflow-wrap:anywhere;max-width:100%}.arabic-body{font-family:"Noto Naskh Arabic","Amiri",serif;font-size:clamp(20px,4.8vw,26px);line-height:2;max-width:530px;margin:0 0 15px}.english-body{font-family:Georgia,serif;font-size:clamp(15px,3vw,18px);line-height:1.72;max-width:510px;color:#e8eae0;margin:0}.signature{color:#bfd4ca;letter-spacing:.16em;font-size:9px;margin-top:26px}.signature span{color:var(--gold);margin:0 4px}.actions-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px}.actions-grid>*{min-height:49px;border-radius:13px;display:grid;place-items:center;text-decoration:none;font-size:13px;font-weight:750;padding:10px 7px}.primary-action{background:var(--gold);border:1px solid var(--gold);color:#182620;grid-column:span 2}.secondary-action{background:#1b3938;border:1px solid #59736b;color:#f6eee0}.action-note{color:#9cbcb4;font-size:11px;text-align:center;padding:13px 10px 0}.fact-card{margin:22px 0;border:1px solid var(--line);border-radius:18px;background:#112d2e;padding:21px}.fact-card h3{font-size:17px;margin:7px 0}.fact-card p{font-size:13px;line-height:1.6;color:#bed2ca;margin:0}.gift-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.gift-pills span{font-size:11px;border-radius:99px;padding:7px 10px;border:1px solid #b6a27655;color:#e9d2a1;background:#f5d8a00b}
+.library-list,.saved-list{display:grid;gap:12px}.library-card,.saved-card{border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#11383a,#0c242b);padding:17px;display:flex;gap:15px;align-items:center}.library-card .left-icon{flex-shrink:0;width:50px;height:50px;display:grid;place-items:center;background:#d8c49714;border-radius:14px;font-size:26px}.library-card .card-info,.saved-card .card-info{flex:1;min-width:0}.library-card h3,.saved-card h3{font-size:16px;margin:0 0 2px}.library-card p,.saved-card p{color:#bdd5c9;font-size:12px;margin:0 0 3px}.library-card small,.saved-card small{color:#8eaaa2;font-size:11px}.library-card button,.saved-card button{border-radius:10px;background:#254d44;border:1px solid #648071;color:#f8e9c9;padding:9px 12px;font-size:12px;font-weight:700}.saved-actions{display:grid;gap:7px}.saved-actions .remove{background:#532e35;border-color:#985965}.empty-state{padding:35px 25px;border:1px dashed #bdac8b77;border-radius:20px;text-align:center;color:#ccdfd6;background:#0d292b}.empty-state .empty-icon{font-size:34px;margin:0 0 7px}.empty-state h3{margin:0 0 5px;font-size:18px}.empty-state p{font-size:13px;margin:0}.info-panel{margin-top:24px;display:flex;align-items:start;gap:13px;border:1px solid #e6bf7c33;background:#d9b67c0b;border-radius:16px;padding:18px}.info-icon{font-size:20px;color:#f4dca7}.info-panel h3{font-size:15px;margin:0 0 4px}.info-panel p{font-size:12px;color:#b3c8c1;margin:0}.vendor-hero{text-align:center;background:linear-gradient(145deg,#153e3c,#0c222b);border:1px solid var(--line);border-radius:24px;padding:42px 18px 30px}.vendor-graphic{font-size:61px;margin-bottom:9px}.vendor-hero h2{font-family:Georgia,serif;letter-spacing:-.03em;font-weight:500;font-size:26px;margin:8px 0}.vendor-hero p{font-size:13px;color:#bdd7cd;max-width:370px;margin:0 auto 23px}.category-tags{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.category-tags span{padding:7px 10px;border-radius:100px;font-size:11px;border:1px solid #d6bc8055;color:#e8d29a}.privacy-note{font-size:12px;color:#a4beb6;margin:15px 0}
+.bottom-nav{position:fixed;z-index:30;bottom:0;left:0;right:0;background:#081e22f5;border-top:1px solid #ddc58d30;backdrop-filter:blur(18px);padding-bottom:env(safe-area-inset-bottom)}.nav-inner{display:grid;grid-template-columns:repeat(4,1fr);max-width:620px;margin:0 auto;padding:8px 10px 9px}.nav-item{border:0;background:transparent;color:#8fa9a0;min-height:52px;border-radius:12px;font-weight:620;font-size:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}.nav-icon{font-size:23px;line-height:1}.nav-item.selected{color:#f6d798;background:#e6c78917}.toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);bottom:calc(86px + env(safe-area-inset-bottom));padding:12px 18px;border:1px solid #e2bc7e77;background:#173e37;color:#fff5de;border-radius:100px;font-size:12px;font-weight:720;box-shadow:0 10px 40px #0008;z-index:45;max-width:90vw;opacity:0;pointer-events:none;transition:.3s;text-align:center}.toast.visible{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(min-width:760px){.masthead-inner{padding:19px 24px}.main-container{padding:0 24px 90px}.intro{padding:57px 0 44px}.composer-layout{grid-template-columns:minmax(320px,.85fr) minmax(0,1.15fr);align-items:start;gap:25px}.composer-panel{padding:28px}.greeting-card{min-height:550px}.bottom-nav{position:static;max-width:var(--content);margin:0 auto 30px;border:1px solid var(--line);border-radius:15px;padding:0;background:#102e31}.nav-inner{max-width:560px}.library-list{grid-template-columns:1fr 1fr}.fact-card{padding:26px}.brand strong{font-size:18px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+@media print{body{background:white!important}.masthead,.bottom-nav,.intro,.composer-panel,.actions-grid,.action-note,.outside-heading,.fact-card,.toast{display:none!important}.main-container{padding:0;margin:0;max-width:none}.view:not(#view-create){display:none}.composer-layout{display:block}.greeting-card{width:100%;height:94vh;border-radius:0;box-shadow:none;print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+  </style>
+  <title>Smart Greetings · Moments worth sharing</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="masthead">
+      <div class="masthead-inner">
+        <div class="brand" aria-label="Smart Greetings">
+          <div class="brand-mark" aria-hidden="true">☾<i>✦</i></div>
+          <div><strong>Smart Greetings</strong><span>من القلب · from the heart</span></div>
+        </div>
+        <button class="install-button" id="install-button" type="button"><span aria-hidden="true">↓</span> Install</button>
+      </div>
+    </header>
+
+    <main id="main" class="main-container">
+      <section class="view" id="view-create" aria-labelledby="create-title">
+        <div class="intro">
+          <div class="eyebrow"><span class="status-dot"></span> A little love, from anywhere</div>
+          <h1 id="create-title">Make someone’s <em>day.</em></h1>
+          <p>Choose a meaningful moment and send a greeting that feels personal.</p>
+        </div>
+
+        <div class="composer-layout">
+          <section class="composer-panel" aria-labelledby="compose-heading">
+            <div class="section-heading"><div><span class="kicker">01 / Choose</span><h2 id="compose-heading">The occasion</h2></div><span class="tiny-tag">العربية + English</span></div>
+            <div id="occasion-choices" class="occasion-choices" role="group" aria-label="Choose an occasion"></div>
+            <div class="field-grid">
+              <label class="field-group"><span>Who is it for?</span><input id="recipient-input" type="text" maxlength="80" autocomplete="off" placeholder="Name (optional)"></label>
+              <label class="field-group"><span>Greeting language</span><select id="language-select"><option value="both">Arabic + English</option><option value="ar">العربية فقط · Arabic only</option><option value="en">English only</option></select></label>
+              <label class="field-group hidden" id="date-group"><span>Umrah occasion date</span><input id="date-input" type="date"><small>Umrah is a personal pilgrimage milestone—not a fixed annual holiday.</small></label>
+            </div>
+            <div class="reminder-row"><div><span class="small-overline">NEXT OCCASION</span><strong id="next-occurrence">Every Friday</strong></div><button type="button" class="outline-button" id="reminder-button">+ Reminder</button></div>
+          </section>
+
+          <section class="preview-panel" aria-labelledby="preview-title">
+            <div class="section-heading outside-heading"><div><span class="kicker">02 / Personalize</span><h2 id="preview-title">Your greeting</h2></div><span class="tiny-tag">Live preview</span></div>
+            <article class="greeting-card" id="greeting-card">
+              <div class="decor decor-top" aria-hidden="true">✦　✧　✦</div>
+              <div id="card-icon" class="card-icon" aria-hidden="true">🌹</div>
+              <div class="arabic-heading" id="card-ar-title" lang="ar" dir="rtl"></div>
+              <h3 class="english-heading" id="card-en-title"></h3>
+              <div class="gold-divider" aria-hidden="true"></div>
+              <p class="dedication" id="card-dedication"></p>
+              <p class="arabic-body" id="card-ar-message" lang="ar" dir="rtl"></p>
+              <p class="english-body" id="card-en-message"></p>
+              <div class="signature">SMART GREETINGS <span>✦</span> WITH LOVE</div>
+              <div class="decor decor-bottom" aria-hidden="true">✧　✦　✧</div>
+            </article>
+            <div class="actions-grid">
+              <button class="primary-action" type="button" id="share-button">↗ Share greeting</button>
+              <a class="secondary-action" id="whatsapp-link" href="https://wa.me/" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <button class="secondary-action" type="button" id="save-button">♡ Save</button>
+              <button class="secondary-action" type="button" id="copy-button">Copy text</button>
+            </div>
+            <div class="action-note">Text sharing works on your phone. Print or save a card as PDF from your browser menu.</div>
+          </section>
+        </div>
+        <section class="fact-card"><div><span class="kicker">A THOUGHTFUL DETAIL</span><h3 id="about-heading">Friday blessings</h3><p id="about-occasion">A kind word can travel a long way.</p></div><div class="gift-pills" id="gift-pills"></div></section>
+      </section>
+
+      <section class="view hidden" id="view-occasions" aria-labelledby="occasions-title">
+        <div class="intro"><div class="eyebrow">Our growing calendar</div><h1 id="occasions-title">Every moment <em>matters.</em></h1><p>Two real occasions to start with. More holidays, birthdays, and milestones are coming.</p></div>
+        <div class="section-heading"><h2>Occasion library</h2><span class="tiny-tag" id="occasion-count">2 occasions</span></div>
+        <div class="library-list" id="occasion-library"></div>
+        <div class="info-panel"><span class="info-icon">✦</span><div><h3>Built for more traditions</h3><p>Future additions can include Ramadan, Eid al-Fitr, Eid al-Adha, birthdays, anniversaries, and cultural holidays. Dates will be verified before release.</p></div></div>
+      </section>
+
+      <section class="view hidden" id="view-vendors" aria-labelledby="vendors-title">
+        <div class="intro"><div class="eyebrow">A future gift marketplace</div><h1 id="vendors-title">The perfect <em>thought.</em></h1><p>One day, discover thoughtful gifts from verified local businesses alongside your greetings.</p></div>
+        <div class="vendor-hero"><div class="vendor-graphic" aria-hidden="true">🎁</div><span class="kicker">VENDOR DIRECTORY · COMING LATER</span><h2>Give meaningfully, shop locally.</h2><p>We're building the foundation first. No vendors are listed or endorsed yet.</p><div class="category-tags"><span>Flowers</span><span>Sweet treats</span><span>Personalized gifts</span><span>Local makers</span></div></div>
+        <div class="info-panel"><span class="info-icon">✓</span><div><h3>Trust comes first</h3><p>We'll add real businesses only after checking their details, location, availability, and permission to be listed. No fictional storefronts.</p></div></div>
+        <div class="hidden" id="vendor-results"></div>
+      </section>
+
+      <section class="view hidden" id="view-saved" aria-labelledby="saved-title">
+        <div class="intro"><div class="eyebrow">Your little collection</div><h1 id="saved-title">Made with <em>love.</em></h1><p>Saved greetings stay on this device. You can load them, share them, or remove them anytime.</p></div>
+        <div class="section-heading"><h2>Saved greetings</h2><span class="tiny-tag" id="saved-count">0 saved</span></div>
+        <div class="saved-list" id="saved-list"></div>
+        <p class="privacy-note">🔒 Saved locally in this browser. No account, tracking, or cloud sync in this version.</p>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <div class="nav-inner">
+        <button type="button" class="nav-item selected" data-tab="create" aria-current="page"><span class="nav-icon" aria-hidden="true">✎</span><span>Create</span></button>
+        <button type="button" class="nav-item" data-tab="occasions"><span class="nav-icon" aria-hidden="true">☷</span><span>Occasions</span></button>
+        <button type="button" class="nav-item" data-tab="vendors"><span class="nav-icon" aria-hidden="true">◇</span><span>Vendors</span></button>
+        <button type="button" class="nav-item" data-tab="saved"><span class="nav-icon" aria-hidden="true">♡</span><span>Saved</span></button>
+      </div>
+    </nav>
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  </div>
+<script type="application/json" id="occasion-json">{"schemaVersion": 1, "project": "Smart Greetings — Events & Gift Recommendation App", "occasions": [{"id": "jumuah-mubarak", "category": "weekly-religious-observance", "name": {"en": "Jumu'ah Mubarak", "ar": "جمعة مباركة"}, "subtitle": {"en": "Blessed Friday", "ar": "جمعة طيبة مباركة"}, "recurrence": {"kind": "weekly", "dayOfWeek": 5, "useRecipientsLocalTimezone": true}, "greeting": {"ar": "جمعة مباركة! اللهم في يوم الجمعة اجعل لنا دعوة لا تُرد، وارزقنا رزقًا لا يُعد، وافتح لنا أبواب الجنة.", "en": "Blessed Friday! O Allah, on this Friday, grant us prayers that are answered, provide us with blessings beyond measure, and open for us the gates of Paradise."}, "features": ["send-greeting", "share-card", "optional-weekly-reminder"], "giftSuggestions": [], "note": "A weekly Islamic observance/greeting, not an annual public holiday. Gifts or purchases are not customary requirements."}, {"id": "umrah-mubarak", "category": "pilgrimage-milestone", "name": {"en": "Umrah Mubarak", "ar": "عمرة مباركة"}, "subtitle": {"en": "Blessings on your Umrah", "ar": "تقبل الله عمرتك"}, "recurrence": {"kind": "user-specified-date"}, "greeting": {"ar": "عمرة مباركة! تقبل الله عمرتك، وغفر ذنبك، وكتب لك الأجر.", "en": "Blessings on your Umrah! May Allah accept your pilgrimage, forgive your sins, and reward you."}, "features": ["send-greeting", "share-card", "optional-milestone-reminder"], "giftSuggestions": ["congratulations-card", "dates", "flowers"], "note": "Umrah is a pilgrimage, not a fixed annual holiday; the sender chooses the relevant date."}]}</script>
+<script type="application/json" id="vendor-json">{"schemaVersion": 1, "vendors": [], "note": "No businesses or partnerships are represented. Add verified, approved vendor records here in a future release."}</script>
+<script>
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const storageKey = 'smart-greetings:saved:v1';
+  const symbols = { 'jumuah-mubarak': '🌹', 'umrah-mubarak': '🕋' };
+  const giftLabels = { 'congratulations-card': 'Personalized card', dates: 'Dates', flowers: 'Flowers' };
+  const state = { occasions: [], vendors: [], chosen: 'jumuah-mubarak', saved: [] };
+  let toastTimer = null;
+  let deferredInstallPrompt = null;
+
+  function toast(message) {
+    const element = $('toast');
+    element.textContent = message;
+    element.classList.add('visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => element.classList.remove('visible'), 3600);
+  }
+
+  function readSaved() {
+    try {
+      const data = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      return Array.isArray(data) ? data.filter(x => x && typeof x.id === 'string' && typeof x.occasionId === 'string').slice(0, 50) : [];
+    } catch (_) { return []; }
+  }
+  function storeSaved() {
+    try {
+      localStorage.setItem(storageKey, JSON.stringify(state.saved));
+      return true;
+    } catch (_) {
+      toast('Could not save to this browser. Check storage settings.');
+      return false;
+    }
+  }
+
+  function make(tag, className, textValue) {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    if (textValue !== undefined) element.textContent = textValue;
+    return element;
+  }
+  const active = () => state.occasions.find(o => o.id === state.chosen) || state.occasions[0];
+  const recipient = () => $('recipient-input').value.trim();
+  const language = () => $('language-select').value;
+  const prettyDate = date => new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
+
+  function nextFriday() {
+    const now = new Date();
+    const next = new Date(now);
+    const days = (5 - now.getDay() + 7) % 7;
+    next.setDate(now.getDate() + days);
+    next.setHours(9, 0, 0, 0);
+    if (next <= now) next.setDate(next.getDate() + 7);
+    return next;
+  }
+
+  function messageText(occasion = active(), to = recipient(), lang = language()) {
+    if (!occasion) return '';
+    const output = [];
+    if (to) output.push(`${lang === 'ar' ? 'إلى' : 'For'} ${to}:`);
+    if (lang !== 'en') output.push(occasion.greeting.ar);
+    if (lang === 'both') output.push('');
+    if (lang !== 'ar') output.push(occasion.greeting.en);
+    return output.join('\n').trim();
+  }
+
+  function renderChoices() {
+    const parent = $('occasion-choices');
+    parent.replaceChildren();
+    state.occasions.forEach(occasion => {
+      const button = make('button', 'occasion-choice');
+      button.type = 'button';
+      button.dataset.occasion = occasion.id;
+      button.setAttribute('aria-pressed', String(occasion.id === state.chosen));
+      button.append(make('span', 'occasion-emoji', symbols[occasion.id] || '✨'));
+      const titles = make('span');
+      titles.append(make('strong', '', occasion.name.en), make('small', '', occasion.name.ar));
+      button.append(titles, make('span', 'occasion-selected', occasion.id === state.chosen ? '◉' : '○'));
+      parent.append(button);
+    });
+  }
+
+  function renderCard() {
+    const o = active();
+    if (!o) return;
+    renderChoices();
+    $('card-icon').textContent = symbols[o.id] || '✨';
+    $('card-ar-title').textContent = o.name.ar;
+    $('card-en-title').textContent = o.name.en;
+    $('card-ar-message').textContent = o.greeting.ar;
+    $('card-en-message').textContent = o.greeting.en;
+    const arOnly = language() === 'ar';
+    const enOnly = language() === 'en';
+    $('card-ar-title').classList.toggle('hidden', enOnly);
+    $('card-ar-message').classList.toggle('hidden', enOnly);
+    $('card-en-title').classList.toggle('hidden', arOnly);
+    $('card-en-message').classList.toggle('hidden', arOnly);
+    $('card-dedication').textContent = recipient() ? `${arOnly ? 'إلى' : 'For'} ${recipient()}` : '';
+    $('date-group').classList.toggle('hidden', o.recurrence.kind === 'weekly');
+    if (o.recurrence.kind === 'weekly') $('next-occurrence').textContent = `Next Friday · ${prettyDate(nextFriday())}`;
+    else $('next-occurrence').textContent = $('date-input').value
+      ? `Selected · ${prettyDate(new Date(`${$('date-input').value}T12:00:00`))}`
+      : 'Choose your occasion date';
+    $('about-heading').textContent = o.name.en;
+    $('about-occasion').textContent = o.note || '';
+    $('gift-pills').replaceChildren();
+    if (o.giftSuggestions?.length) {
+      for (const item of o.giftSuggestions) $('gift-pills').append(make('span', '', giftLabels[item] || item));
+    } else {
+      $('gift-pills').append(make('span', '', 'A heartfelt message is enough 💛'));
+    }
+    $('whatsapp-link').href = `https://wa.me/?text=${encodeURIComponent(messageText())}`;
+  }
+
+  function renderLibrary() {
+    const container = $('occasion-library');
+    container.replaceChildren();
+    $('occasion-count').textContent = `${state.occasions.length} occasions`;
+    state.occasions.forEach(o => {
+      const card = make('article', 'library-card');
+      card.append(make('div', 'left-icon', symbols[o.id] || '✨'));
+      const details = make('div', 'card-info');
+      details.append(make('h3', '', o.name.en), make('p', '', o.name.ar));
+      details.append(make('small', '', o.recurrence.kind === 'weekly' ? 'Weekly · Friday' : 'Personal milestone · choose a date'));
+      const button = make('button', '', 'Create →');
+      button.type = 'button';
+      button.dataset.useOccasion = o.id;
+      card.append(details, button);
+      container.append(card);
+    });
+  }
+
+  function renderVendors() {
+    const container = $('vendor-results');
+    container.replaceChildren();
+    // Only vetted vendors can be listed; never imply an unverified partnership.
+    const listed = state.vendors.filter(v => v?.verified === true && v.name);
+    if (!listed.length) return;
+    container.classList.remove('hidden');
+    const heading = make('h2', '', 'Verified local vendors');
+    container.append(heading);
+    for (const vendor of listed) {
+      const card = make('article', 'library-card');
+      const details = make('div', 'card-info');
+      details.append(make('h3', '', vendor.name), make('p', '', [vendor.category, vendor.city].filter(Boolean).join(' · ')));
+      card.append(details);
+      if (typeof vendor.url === 'string') {
+        try {
+          const url = new URL(vendor.url);
+          if (url.protocol === 'https:' || url.protocol === 'http:') {
+            const link = make('a', 'outline-button', 'Visit ↗');
+            link.href = url.href;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            card.append(link);
+          }
+        } catch (_) { /* no link */ }
+      }
+      container.append(card);
+    }
+  }
+
+  function showTab(tab) {
+    for (const el of document.querySelectorAll('.view')) el.classList.toggle('hidden', el.id !== `view-${tab}`);
+    for (const el of document.querySelectorAll('.nav-item')) {
+      const selected = el.dataset.tab === tab;
+      el.classList.toggle('selected', selected);
+      if (selected) el.setAttribute('aria-current', 'page');
+      else el.removeAttribute('aria-current');
+    }
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  async function copyToClipboard(text) {
+    if (navigator.clipboard?.writeText && window.isSecureContext) {
+      try { await navigator.clipboard.writeText(text); return true; } catch (_) { /* fallback */ }
+    }
+    const input = make('textarea');
+    input.value = text;
+    input.style.cssText = 'position:fixed;left:-9999px;top:0';
+    document.body.append(input);
+    input.focus(); input.select();
+    let copied = false;
+    try { copied = document.execCommand('copy'); } catch (_) { /* blocked */ }
+    input.remove();
+    return copied;
+  }
+
+  async function shareGreeting() {
+    const text = messageText();
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: active().name.en, text });
+        return;
+      } catch (error) {
+        if (error?.name === 'AbortError') return;
+      }
+    }
+    toast(await copyToClipboard(text) ? 'Greeting copied — paste it anywhere!' : 'Use WhatsApp or select the message to copy.');
+  }
+
+  function saveGreeting() {
+    const o = active();
+    if (!o) return;
+    const entry = {
+      id: typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : String(Date.now()),
+      occasionId: o.id, recipient: recipient(), language: language(), date: $('date-input').value,
+      created: new Date().toISOString()
+    };
+    state.saved.unshift(entry);
+    state.saved = state.saved.slice(0, 50);
+    if (storeSaved()) { renderSaved(); toast('Saved on this device ♡'); }
+  }
+
+  function renderSaved() {
+    $('saved-count').textContent = `${state.saved.length} saved`;
+    const container = $('saved-list');
+    container.replaceChildren();
+    if (!state.saved.length) {
+      const empty = make('div', 'empty-state');
+      empty.append(make('div', 'empty-icon', '♡'), make('h3', '', 'Your collection starts here'), make('p', '', 'Create a greeting and tap Save to keep it on this device.'));
+      container.append(empty);
+      return;
+    }
+    for (const entry of state.saved) {
+      const occasion = state.occasions.find(o => o.id === entry.occasionId);
+      if (!occasion) continue;
+      const card = make('article', 'saved-card');
+      const details = make('div', 'card-info');
+      details.append(make('h3', '', occasion.name.en));
+      details.append(make('p', '', entry.recipient ? `For ${entry.recipient}` : 'A greeting made with love'));
+      const date = new Date(entry.created);
+      details.append(make('small', '', isNaN(date.getTime()) ? '' : prettyDate(date)));
+      const buttons = make('div', 'saved-actions');
+      const load = make('button', '', 'Open');
+      load.type = 'button'; load.dataset.loadSaved = entry.id;
+      const remove = make('button', 'remove', 'Remove');
+      remove.type = 'button'; remove.dataset.removeSaved = entry.id;
+      buttons.append(load, remove);
+      card.append(details, buttons);
+      container.append(card);
+    }
+  }
+
+  function icsEscape(value) { return String(value).replace(/\\/g, '\\\\').replace(/\r?\n/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\\;'); }
+  function icsTime(date, utc = false) {
+    const pad = x => String(x).padStart(2, '0');
+    const g = part => utc ? date[`getUTC${part}`]() : date[`get${part}`]();
+    return `${g('FullYear')}${pad(g('Month') + 1)}${pad(g('Date'))}T${pad(g('Hours'))}${pad(g('Minutes'))}${pad(g('Seconds'))}${utc ? 'Z' : ''}`;
+  }
+
+  function downloadReminder() {
+    const occasion = active();
+    if (!occasion) return;
+    const weekly = occasion.recurrence.kind === 'weekly';
+    let date = nextFriday();
+    if (!weekly) {
+      const value = $('date-input').value;
+      if (!value) { toast('Choose an Umrah date first.'); $('date-input').focus(); return; }
+      date = new Date(`${value}T09:00:00`);
+      if (isNaN(date.getTime())) { toast('Please choose a valid date.'); return; }
+    }
+    const ends = new Date(date.getTime() + 30 * 60000);
+    const lines = [
+      'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Smart Greetings//Calendar//EN',
+      'CALSCALE:GREGORIAN', 'BEGIN:VEVENT',
+      `UID:${Date.now()}-${Math.floor(Math.random() * 99999)}@smart-greetings.local`,
+      `DTSTAMP:${icsTime(new Date(), true)}`, `DTSTART:${icsTime(date)}`, `DTEND:${icsTime(ends)}`,
+      `SUMMARY:${icsEscape(`Send a ${occasion.name.en} greeting`)}`,
+      `DESCRIPTION:${icsEscape(occasion.greeting.en)}`,
+      ...(weekly ? ['RRULE:FREQ=WEEKLY;BYDAY=FR'] : []),
+      'BEGIN:VALARM', 'TRIGGER:-PT1H', 'ACTION:DISPLAY',
+      `DESCRIPTION:${icsEscape(occasion.name.en)} reminder`, 'END:VALARM',
+      'END:VEVENT', 'END:VCALENDAR', ''
+    ];
+    const blob = new Blob([lines.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+    const href = URL.createObjectURL(blob);
+    const link = make('a'); link.href = href; link.download = `${occasion.id}-reminder.ics`;
+    document.body.append(link); link.click(); link.remove();
+    setTimeout(() => URL.revokeObjectURL(href), 5000);
+    toast('Calendar file downloaded — open it to add the reminder.');
+  }
+
+  function wireEvents() {
+    document.querySelectorAll('.nav-item').forEach(el => el.addEventListener('click', () => showTab(el.dataset.tab)));
+    $('occasion-choices').addEventListener('click', event => {
+      const button = event.target.closest('[data-occasion]');
+      if (!button) return;
+      state.chosen = button.dataset.occasion;
+      renderCard();
+    });
+    $('occasion-library').addEventListener('click', event => {
+      const button = event.target.closest('[data-use-occasion]');
+      if (!button) return;
+      state.chosen = button.dataset.useOccasion;
+      renderCard(); showTab('create');
+    });
+    $('saved-list').addEventListener('click', event => {
+      const remove = event.target.closest('[data-remove-saved]');
+      if (remove) {
+        state.saved = state.saved.filter(x => x.id !== remove.dataset.removeSaved);
+        if (storeSaved()) { renderSaved(); toast('Greeting removed.'); }
+        return;
+      }
+      const load = event.target.closest('[data-load-saved]');
+      if (load) {
+        const entry = state.saved.find(x => x.id === load.dataset.loadSaved);
+        if (!entry) return;
+        state.chosen = entry.occasionId;
+        $('recipient-input').value = entry.recipient || '';
+        $('language-select').value = entry.language || 'both';
+        $('date-input').value = entry.date || '';
+        renderCard(); showTab('create');
+        toast('Saved greeting loaded.');
+      }
+    });
+    for (const id of ['recipient-input', 'language-select', 'date-input']) {
+      $(id).addEventListener(id === 'recipient-input' ? 'input' : 'change', renderCard);
+    }
+    $('share-button').addEventListener('click', shareGreeting);
+    $('copy-button').addEventListener('click', async () => {
+      toast(await copyToClipboard(messageText()) ? 'Greeting text copied!' : 'Copy blocked; use WhatsApp to share.');
+    });
+    $('save-button').addEventListener('click', saveGreeting);
+    $('reminder-button').addEventListener('click', downloadReminder);
+    $('install-button').addEventListener('click', async () => {
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        await deferredInstallPrompt.userChoice;
+        deferredInstallPrompt = null;
+      } else if (window.matchMedia('(display-mode: standalone)').matches) {
+        toast('Smart Greetings is already installed!');
+      } else {
+        toast('On Android Chrome: tap ⋮ and choose “Install app” or “Add to Home screen”.');
+      }
+    });
+    window.addEventListener('beforeinstallprompt', event => {
+      event.preventDefault();
+      deferredInstallPrompt = event;
+    });
+    window.addEventListener('appinstalled', () => {
+      deferredInstallPrompt = null;
+      $('install-button').textContent = '✓ Installed';
+      toast('Smart Greetings is now on your home screen!');
+    });
+  }
+
+  async function getJson(url) {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`Could not load ${url}: HTTP ${response.status}`);
+    return response.json();
+  }
+  async function init() {
+    wireEvents();
+    state.saved = readSaved();
+    try {
+      const occasionData = JSON.parse(document.getElementById('occasion-json').textContent);
+      const vendorData = JSON.parse(document.getElementById('vendor-json').textContent);
+      state.occasions = occasionData.occasions;
+      state.vendors = vendorData.vendors || [];
+      state.chosen = state.occasions[0]?.id || state.chosen;
+      renderCard(); renderLibrary(); renderVendors(); renderSaved();
+    } catch (error) {
+      console.error(error);
+      $('occasion-choices').textContent = 'Unable to load occasion data. Try reconnecting and refreshing.';
+      toast('Could not load the app data.');
+    }
+    if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+      navigator.serviceWorker.register('./sw.js').catch(error => console.warn('Offline setup failed', error));
+    }
+  }
+  init();
+})();
+
+</script>
+</body>
+</html>

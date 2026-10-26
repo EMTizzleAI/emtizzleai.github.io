@@ -1,0 +1,31 @@
+{
+  "id": "./",
+  "name": "Smart Greetings — من القلب",
+  "short_name": "Greetings",
+  "description": "Bilingual greetings for the moments that matter.",
+  "start_url": "./?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#071c21",
+  "theme_color": "#071c21",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "categories": [
+    "lifestyle",
+    "social"
+  ],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
