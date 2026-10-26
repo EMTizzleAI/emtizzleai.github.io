@@ -44,6 +44,16 @@
 
 /* FalahwAI: opt-in bilingual AI greeting studio */
 .ai-studio{margin:21px 0 0;padding:18px;border:1px solid #e8c58b95;border-radius:19px;background:linear-gradient(145deg,#214638,#142e34)}.ai-studio h3{font-family:Georgia,serif;color:#fce0ab;font-size:23px;font-weight:500;margin:3px 0}.ai-studio .ai-sub{font-size:12px;color:#c9ded3;margin:6px 0 14px}.ai-badge{float:right;background:#f5d89f;color:#12372e;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:850}.ai-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ai-studio .field-group{margin-bottom:12px}.ai-studio .field-group>span{font-size:12px}.ai-studio select,.ai-studio textarea{width:100%;min-width:0;min-height:46px;border:1px solid #9fba9980;border-radius:11px;background:#082b2d;color:#fff0da;padding:10px;font-size:13px}.ai-studio textarea{min-height:75px;resize:vertical}.ai-studio textarea::placeholder{color:#8fac9f}.ai-launch{width:100%;min-height:51px;background:linear-gradient(100deg,#f3d18a,#ffdfaa);color:#133027;border:1px solid #fce5b8;border-radius:12px;padding:12px;font-weight:850;font-size:14px}.ai-status{font-size:11px;line-height:1.55;color:#c0d8cf;margin:11px 0 0}.ai-status[data-status="error"]{color:#ffb7af}.ai-status[data-status="success"]{color:#a8edc6}@media(max-width:355px){.ai-fields{grid-template-columns:1fr}}
+
+/* Put successful FalahwAI output right beside the generate button on phones. */
+.ai-result{margin-top:14px;padding:16px;border-radius:14px;border:1px solid #f5d99d8a;background:#08272c;scroll-margin-top:90px}
+.ai-result h4{margin:0 0 11px;font-size:17px;color:#ffe2a7;font-family:Georgia,serif;font-weight:500}
+.ai-result-label{font-size:10px;letter-spacing:.1em;font-weight:800;color:#d4c8a5;text-transform:uppercase;margin:12px 0 4px}
+.ai-result-text{font-size:15px;line-height:1.7;color:#f6eee0;white-space:pre-line;overflow-wrap:anywhere;margin:0}
+.ai-result-text[lang=ar]{font-family:"Noto Naskh Arabic","Amiri",serif;font-size:20px;line-height:1.9}
+.ai-result-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.ai-result-actions button{flex:1;min-width:120px;min-height:42px;border-radius:9px;padding:8px 11px;font-size:12px;font-weight:700;color:#20312d;background:#f2d59e;border:1px solid #efd8a7}
+.ai-result-actions button+button{color:#f5e9ce;background:#1b4541;border-color:#7e9b85}
   </style>
   <title>Smart Greetings · Moments worth sharing</title>
 </head>
@@ -88,7 +98,16 @@
               </div>
               <label class="field-group"><span>Personal details (optional)</span><textarea id="ai-details" maxlength="350" rows="3" placeholder="E.g. He's finishing Umrah today, loves gentle humor, and I miss him."></textarea></label>
               <button class="ai-launch" id="ai-generate-button" type="button">✨ Generate with FalahwAI</button>
-              <p id="ai-status" class="ai-status" role="status" aria-live="polite">Online AI via Puter. You may need to sign in; free usage has limits and additional usage may cost money. Details are sent to the AI provider only when you generate.</p>
+              <p id="ai-status" class="ai-status" role="status" aria-live="polite">Online AI via Puter. First-time users: finish signing in, return to Smart Greetings, and tap Generate again if needed. Free usage has limits and additional usage may cost money. Your details are only sent when you tap Generate.</p>
+              <div id="ai-result" class="ai-result hidden" aria-live="polite" aria-labelledby="ai-result-title">
+                <h4 id="ai-result-title">✦ Your FalahwAI greeting is ready!</h4>
+                <p class="ai-result-label">English</p><p id="ai-result-en" class="ai-result-text" lang="en"></p>
+                <p class="ai-result-label">العربية</p><p id="ai-result-ar" class="ai-result-text" lang="ar" dir="rtl"></p>
+                <div class="ai-result-actions">
+                  <button id="ai-result-card" type="button">↓ See greeting card</button>
+                  <button id="ai-result-copy" type="button">Copy greeting</button>
+                </div>
+              </div>
             </section>
             <div class="reminder-row"><div><span class="small-overline">NEXT OCCASION</span><strong id="next-occurrence">Every Friday</strong></div><button type="button" class="outline-button" id="reminder-button">+ Reminder</button></div>
           </section>
@@ -284,6 +303,18 @@
     $('ai-status').dataset.status = level;
   }
 
+
+  function showAIResult(message) {
+    $('ai-result-en').textContent = message.en;
+    $('ai-result-ar').textContent = message.ar;
+    $('ai-result').classList.remove('hidden');
+    requestAnimationFrame(() => $('ai-result').scrollIntoView({behavior:'smooth', block:'start'}));
+  }
+
+  function hideAIResult() {
+    $('ai-result').classList.add('hidden');
+  }
+
   function parseAIGreeting(reply) {
     const content = typeof reply === 'string' ? reply : reply?.message?.content;
     const body = typeof content === 'string' ? content :
@@ -315,7 +346,8 @@
     catch (_) { setAIStatus('Could not open Puter sign-in. Try Chrome and allow popups.', 'error'); return; }
     button.disabled = true;
     button.textContent = '✦ FalahwAI is writing…';
-    setAIStatus('Connecting to AI…');
+    hideAIResult();
+    setAIStatus(signIn ? 'Complete the Puter sign-in, then return to this Smart Greetings tab. FalahwAI will continue if the page stays open.' : 'Connecting to FalahwAI…');
     try {
       if (signIn) await signIn;
       setAIStatus('Creating an original bilingual greeting…');
@@ -343,7 +375,8 @@
       }
       state.generatedGreeting = generated;
       renderCard();
-      setAIStatus('✦ Fresh AI greeting ready! Preview, share, copy or save below.', 'success');
+      showAIResult(generated);
+      setAIStatus('✦ New original greeting ready! Copy it here or scroll to the card to save and share.', 'success');
       toast('FalahwAI wrote something new! ✨');
     } catch (error) {
       console.warn('FalahwAI:', error);
@@ -746,6 +779,7 @@
       if (!button) return;
       state.chosen = button.dataset.occasion;
       state.generatedGreeting = null;
+      hideAIResult();
       renderCard();
     });
     $('occasion-library').addEventListener('click', event => {
@@ -753,6 +787,7 @@
       if (!button) return;
       state.chosen = button.dataset.useOccasion;
       state.generatedGreeting = null;
+      hideAIResult();
       renderCard(); showTab('create');
     });
     $('saved-list').addEventListener('click', event => {
@@ -768,6 +803,7 @@
         if (!entry) return;
         state.chosen = entry.occasionId;
         state.generatedGreeting = entry.greeting && typeof entry.greeting.en === 'string' && typeof entry.greeting.ar === 'string' ? entry.greeting : null;
+        hideAIResult();
         $('recipient-input').value = entry.recipient || '';
         $('language-select').value = entry.language || 'both';
         $('date-input').value = entry.date || '';
@@ -781,6 +817,10 @@
     $('share-button').addEventListener('click', shareGreeting);
     $('generate-button').addEventListener('click', generateGreeting);
     $('ai-generate-button').addEventListener('click', generateAIGreeting);
+    $('ai-result-card').addEventListener('click', () => $('greeting-card').scrollIntoView({behavior:'smooth', block:'start'}));
+    $('ai-result-copy').addEventListener('click', async () => {
+      toast(await copyToClipboard(messageText()) ? 'AI greeting copied!' : 'Copy unavailable. Select the greeting text to copy it.');
+    });
     $('copy-button').addEventListener('click', async () => {
       toast(await copyToClipboard(messageText()) ? 'Greeting text copied!' : 'Copy blocked; use WhatsApp to share.');
     });
