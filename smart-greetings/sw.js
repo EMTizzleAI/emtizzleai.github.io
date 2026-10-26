@@ -1,5 +1,5 @@
-/* Smart Greetings PWA offline cache · Love Notes update */
-const CACHE_NAME = 'smart-greetings-v2';
+/* Smart Greetings PWA offline cache · Fresh Greetings update */
+const CACHE_NAME = 'smart-greetings-v3';
 const APP_FILES = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME)
