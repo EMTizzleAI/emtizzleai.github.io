@@ -41,7 +41,11 @@
 </form>
 <p id="claim-status" class="status" role="status" aria-live="polite">No claim sent yet.</p>
 </div>
-<div id="verified-member" class="hidden"><p class="status" data-tone="success">Your lifetime purchase has been verified. The secure app-delivery step is being completed; you will not be asked to pay again.</p></div>
+<div id="verified-member" class="hidden">
+<p class="status" data-tone="success">Your lifetime access is verified! The full app is available through your secure account.</p>
+<button type="button" class="btn" id="launch-paid-app" style="margin-top:14px">✦ Open My Smart Greetings App →</button>
+<p id="launch-status" class="status" role="status" aria-live="polite">Your app opens in this browser after a fresh entitlement check.</p>
+</div>
 <button type="button" class="btn-outline" id="refresh-access" style="margin-top:15px">↻ Refresh purchase status</button>
 <button type="button" class="btn-outline" id="logout" style="margin-top:9px">Sign out</button>
 </section>
@@ -144,6 +148,25 @@ $('claim-form').addEventListener('submit',async e=>{
   btn.disabled=false;
   if(error)setStatus('claim-status',String(error.message).slice(0,180),'error');
   else{$('transaction-id').value='';setStatus('claim-status','Claim received! This is not payment verification. You will receive access only once the payment is confirmed.','success');await refreshMember()}
+});
+$('launch-paid-app').addEventListener('click',async()=>{
+  const button=$('launch-paid-app');
+  if(!currentUserId||button.disabled)return;
+  button.disabled=true;
+  setStatus('launch-status','Checking your purchase and loading Smart Greetings…');
+  try{
+    // Supabase RLS only returns this private app bundle for users with active access.
+    // Anonymous accounts, unverified payment claims and revoked users receive no rows.
+    const result=await client.from('smart_greetings_private_bundle')
+      .select('body').eq('slug','app-v1').single();
+    if(result.error)throw result.error;
+    if(typeof result.data?.body!=='string'||!result.data.body.startsWith('<!doctype html>'))
+      throw new Error('Your app could not be loaded. Please try again.');
+    const blobUrl=URL.createObjectURL(new Blob([result.data.body],{type:'text/html;charset=utf-8'}));
+    location.assign(blobUrl);
+  }catch(error){
+    setStatus('launch-status','Could not load your app: '+String(error.message||error).slice(0,170),'error');
+  }finally{button.disabled=false}
 });
 $('refresh-access').addEventListener('click',refreshMember);
 $('logout').addEventListener('click',async()=>{await client.auth.signOut();await refreshMember();switchMode('signin')});
