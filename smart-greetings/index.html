@@ -485,7 +485,7 @@
   function chooseOccasion(id){
     if(!state.occasions.some(o=>o.id===id))return;
     state.chosen=id;state.generatedGreeting=null;hideAIResult();renderCard();showTab('create');
-    if(id==='custom')setTimeout(()=>$('custom-occasion-input').focus({preventScroll:true}),50);
+    if(id==='custom')setTimeout(()=>$('custom-occasion-input').focus(),120);
   }
 
   function renderChoices(){
