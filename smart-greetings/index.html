@@ -92,6 +92,7 @@
             </article>
             <div class="actions-grid">
               <button class="primary-action" type="button" id="share-button">↗ Share greeting</button>
+              <button class="secondary-action" type="button" id="generate-button">✨ Another greeting</button>
               <a class="secondary-action" id="whatsapp-link" href="https://wa.me/" target="_blank" rel="noopener noreferrer">WhatsApp</a>
               <button class="secondary-action" type="button" id="save-button">♡ Save</button>
               <button class="secondary-action" type="button" id="copy-button">Copy text</button>
@@ -189,7 +190,8 @@
   const storageKey = 'smart-greetings:saved:v1';
   const symbols = { 'jumuah-mubarak': '🌹', 'umrah-mubarak': '🕋' };
   const giftLabels = { 'congratulations-card': 'Personalized card', dates: 'Dates', flowers: 'Flowers' };
-  const state = { occasions: [], vendors: [], chosen: 'jumuah-mubarak', saved: [] };
+  const greetingBanks = {"jumuah-mubarak":{"openings":[["Jumu'ah Mubarak! Wishing you a blessed Friday.","جمعة مباركة! أتمنى لك يوم جمعة مليئًا بالبركة."],["On this beautiful Friday, I am sending you heartfelt wishes.","في هذا اليوم الجميل من الجمعة، أرسل إليك أطيب الأمنيات."],["May this Friday be a day of peace and reflection.","أسأل الله أن يكون يوم الجمعة هذا يوم سكينة وتأمل."],["A little Friday blessing, sent with care.","دعوة طيبة في يوم الجمعة، أرسلها إليك بكل محبة."],["As Friday arrives, may goodness find its way to you.","مع حلول الجمعة، أسأل الله أن يأتيك الخير من كل باب."],["Jumu'ah Mubarak to you and everyone you love.","جمعة مباركة لك ولكل من تحب."],["Today, I am remembering you in my Friday wishes.","اليوم أذكرك في دعواتي الطيبة ليوم الجمعة."],["May the light of this Friday bring you comfort.","أسأل الله أن يحمل لك نور هذه الجمعة راحة وطمأنينة."]],"wishes":[["May Allah accept your prayers and ease your worries.","أسأل الله أن يتقبل دعاءك ويخفف همومك."],["May your home be filled with mercy and joy.","أسأل الله أن يملأ بيتك رحمة وفرحًا."],["May you find strength for every challenge and gratitude in every blessing.","أسأل الله أن يمنحك القوة أمام كل تحدٍ والشكر على كل نعمة."],["May your loved ones enjoy health, safety, and serenity.","أسأل الله أن ينعم على أحبتك بالصحة والسلامة والسكينة."],["May your heart be guided toward what brings you peace.","أسأل الله أن يهدي قلبك إلى ما فيه راحتك."],["May kindness return to you in unexpected ways.","أسأل الله أن يعود إليك الخير بطرق لم تتوقعها."],["May Allah grant you patience, clarity, and beautiful opportunities.","أسأل الله أن يرزقك الصبر والبصيرة والفرص الجميلة."],["May your sincere hopes be met with goodness.","أسأل الله أن يكتب الخير لأمانيك الصادقة."]],"closings":[["Have a calm and wonderful Friday.","أتمنى لك جمعة هادئة وجميلة."],["Keeping you in my thoughts and prayers today.","أذكرك اليوم بالخير والدعاء."],["May peace stay with you through the weekend.","أسأل الله أن ترافقك السكينة طوال عطلة نهاية الأسبوع."],["With warm wishes from the heart.","مع أطيب الأمنيات من القلب."],["May this be the start of a gentler week ahead.","لعلها بداية أسبوع أكثر لطفًا وراحة."],["Sending you love, light, and duas.","أرسل إليك المحبة والدعوات الطيبة."],["May today leave a little more hope in your heart.","أسأل الله أن يزيد هذا اليوم الأمل في قلبك."],["Wishing you and your family every good thing.","أتمنى لك ولعائلتك كل خير."]]},"umrah-mubarak":{"openings":[["Umrah Mubarak! May Allah accept your pilgrimage.","عمرة مباركة! تقبل الله عمرتك."],["Congratulations on this meaningful journey of Umrah.","هنيئًا لك هذه الرحلة المباركة لأداء العمرة."],["Sending heartfelt blessings for your Umrah.","أرسل إليك أصدق الدعوات بمناسبة عمرتك."],["What a beautiful milestone. Umrah Mubarak!","يا لها من محطة جميلة في حياتك. عمرة مباركة!"],["May your Umrah be filled with peace and reflection.","أسأل الله أن تكون عمرتك مليئة بالسكينة والتأمل."],["With joy for your journey, I wish you a blessed Umrah.","أشاركك فرحة رحلتك وأتمنى لك عمرة مباركة."],["Remembering you with kindness as you make your pilgrimage.","أذكرك بالدعوات الطيبة في رحلتك لأداء العمرة."],["A special blessing for a very special journey.","دعوة خاصة لرحلة مباركة ومميزة."]],"wishes":[["May every step bring you peace and renewed faith.","أسأل الله أن تحمل لك كل خطوة سكينة وتجددًا للإيمان."],["May Allah hear your sincere prayers and ease your heart.","أسأل الله أن يستجيب لدعائك الصادق ويطمئن قلبك."],["May your journey be safe, meaningful, and full of gratitude.","أسأل الله أن تكون رحلتك آمنة وعامرة بالمعنى والامتنان."],["May you find clarity, patience, and deep comfort in worship.","أسأل الله أن يرزقك الصفاء والصبر وراحة القلب في العبادة."],["May your loved ones share in the joy of this occasion.","أسأل الله أن يشاركك أحبتك فرحة هذه المناسبة."],["May Allah grant you good health throughout your travels.","أسأل الله أن يرزقك الصحة والعافية طوال سفرك."],["May your prayers be accompanied by hope and tranquility.","أسأل الله أن يرافق دعاءك الأمل والطمأنينة."],["May this experience leave lasting kindness in your life.","أسأل الله أن يبقى أثر هذه التجربة الطيب في حياتك."]],"closings":[["May you return with beautiful memories and a peaceful heart.","أسأل الله أن تعود بذكريات جميلة وقلب مطمئن."],["Wishing you blessings on the road and at home.","أتمنى لك البركة في رحلتك وعند عودتك."],["May this special moment stay with you for years to come.","أتمنى أن تبقى هذه اللحظة المباركة في ذاكرتك لسنوات."],["With warm wishes and heartfelt duas.","مع أطيب الأمنيات والدعوات من القلب."],["May your journey inspire many more moments of gratitude.","أسأل الله أن تلهمك رحلتك مزيدًا من لحظات الشكر."],["Sending love and blessings to you and your family.","أرسل المحبة والدعوات الطيبة لك ولعائلتك."],["May you carry its serenity into everyday life.","أسأل الله أن تحمل سكينتها معك في أيامك القادمة."],["Taqabbal Allah — may Allah accept it from you.","تقبل الله منك وكتب لك الأجر."]]}};
+  const state = { occasions: [], vendors: [], chosen: 'jumuah-mubarak', saved: [], generatedGreeting: null, lastVariantKey: '' };
   let toastTimer = null;
   let deferredInstallPrompt = null;
 
@@ -238,13 +240,34 @@
     return next;
   }
 
+  function currentGreeting(occasion = active()) {
+    return occasion?.id === state.chosen && state.generatedGreeting ? state.generatedGreeting : occasion?.greeting;
+  }
+
+  function generateGreeting() {
+    const bank = greetingBanks[state.chosen];
+    if (!bank) { toast('More wording for this occasion is coming soon.'); return; }
+    let indexes, key;
+    for (let tries = 0; tries < 12; tries++) {
+      indexes = ['openings', 'wishes', 'closings'].map(part => Math.floor(Math.random() * bank[part].length));
+      key = state.chosen + ':' + indexes.join('-');
+      if (key !== state.lastVariantKey) break;
+    }
+    state.lastVariantKey = key;
+    const pieces = ['openings', 'wishes', 'closings'].map((part, i) => bank[part][indexes[i]]);
+    state.generatedGreeting = { en: pieces.map(pair => pair[0]).join(' '), ar: pieces.map(pair => pair[1]).join(' ') };
+    renderCard();
+    toast('A fresh greeting, just for you ✨');
+  }
+
   function messageText(occasion = active(), to = recipient(), lang = language()) {
     if (!occasion) return '';
+    const greeting = currentGreeting(occasion);
     const output = [];
     if (to) output.push(`${lang === 'ar' ? 'إلى' : 'For'} ${to}:`);
-    if (lang !== 'en') output.push(occasion.greeting.ar);
+    if (lang !== 'en') output.push(greeting.ar);
     if (lang === 'both') output.push('');
-    if (lang !== 'ar') output.push(occasion.greeting.en);
+    if (lang !== 'ar') output.push(greeting.en);
     return output.join('\n').trim();
   }
 
@@ -271,8 +294,8 @@
     $('card-icon').textContent = symbols[o.id] || '✨';
     $('card-ar-title').textContent = o.name.ar;
     $('card-en-title').textContent = o.name.en;
-    $('card-ar-message').textContent = o.greeting.ar;
-    $('card-en-message').textContent = o.greeting.en;
+    $('card-ar-message').textContent = currentGreeting(o).ar;
+    $('card-en-message').textContent = currentGreeting(o).en;
     const arOnly = language() === 'ar';
     const enOnly = language() === 'en';
     $('card-ar-title').classList.toggle('hidden', enOnly);
@@ -543,6 +566,7 @@
     const entry = {
       id: typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : String(Date.now()),
       occasionId: o.id, recipient: recipient(), language: language(), date: $('date-input').value,
+      greeting: { ...currentGreeting(o) },
       created: new Date().toISOString()
     };
     state.saved.unshift(entry);
@@ -605,7 +629,7 @@
       `UID:${Date.now()}-${Math.floor(Math.random() * 99999)}@smart-greetings.local`,
       `DTSTAMP:${icsTime(new Date(), true)}`, `DTSTART:${icsTime(date)}`, `DTEND:${icsTime(ends)}`,
       `SUMMARY:${icsEscape(`Send a ${occasion.name.en} greeting`)}`,
-      `DESCRIPTION:${icsEscape(occasion.greeting.en)}`,
+      `DESCRIPTION:${icsEscape(currentGreeting(occasion).en)}`,
       ...(weekly ? ['RRULE:FREQ=WEEKLY;BYDAY=FR'] : []),
       'BEGIN:VALARM', 'TRIGGER:-PT1H', 'ACTION:DISPLAY',
       `DESCRIPTION:${icsEscape(occasion.name.en)} reminder`, 'END:VALARM',
@@ -626,12 +650,14 @@
       const button = event.target.closest('[data-occasion]');
       if (!button) return;
       state.chosen = button.dataset.occasion;
+      state.generatedGreeting = null;
       renderCard();
     });
     $('occasion-library').addEventListener('click', event => {
       const button = event.target.closest('[data-use-occasion]');
       if (!button) return;
       state.chosen = button.dataset.useOccasion;
+      state.generatedGreeting = null;
       renderCard(); showTab('create');
     });
     $('saved-list').addEventListener('click', event => {
@@ -646,6 +672,7 @@
         const entry = state.saved.find(x => x.id === load.dataset.loadSaved);
         if (!entry) return;
         state.chosen = entry.occasionId;
+        state.generatedGreeting = entry.greeting && typeof entry.greeting.en === 'string' && typeof entry.greeting.ar === 'string' ? entry.greeting : null;
         $('recipient-input').value = entry.recipient || '';
         $('language-select').value = entry.language || 'both';
         $('date-input').value = entry.date || '';
@@ -657,6 +684,7 @@
       $(id).addEventListener(id === 'recipient-input' ? 'input' : 'change', renderCard);
     }
     $('share-button').addEventListener('click', shareGreeting);
+    $('generate-button').addEventListener('click', generateGreeting);
     $('copy-button').addEventListener('click', async () => {
       toast(await copyToClipboard(messageText()) ? 'Greeting text copied!' : 'Copy blocked; use WhatsApp to share.');
     });
