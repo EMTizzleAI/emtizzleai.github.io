@@ -48,6 +48,19 @@
 <h2 id="member-title">Your Smart Greetings account ✨</h2><p id="member-email"></p>
 <div class="summary"><span id="entitlement-icon">🔐</span><div><strong id="entitlement-label">Checking your purchase…</strong><small id="entitlement-detail">Please wait</small></div></div>
 <div class="note">Checkout is not yet taking new orders through this page. We're finishing secure delivery and validating the purchase-to-access process before announcing sales.</div>
+<section class="card hidden" id="gift-card" style="margin-top:16px" aria-labelledby="gift-title">
+<h3 id="gift-title" style="margin:0 0 8px;color:var(--gold);font-size:18px">🎁 Have a gift invitation?</h3>
+<p>Friends of Smart Greetings can redeem a one-time invitation for complimentary lifetime app access. Install the app now or after redeeming.</p>
+<form id="gift-form">
+<label class="field">Your private invitation code
+<input id="gift-code" type="text" required minlength="32" maxlength="32"
+  pattern="[0-9A-Fa-f]{32}" autocapitalize="characters" autocomplete="off"
+  spellcheck="false" placeholder="32-character invitation code">
+</label>
+<button class="btn" type="submit" id="gift-redeem">💗 Redeem my invitation →</button>
+</form>
+<p id="gift-status" class="status" role="status" aria-live="polite">Your code is redeemed only after you sign in. Each invitation works once.</p>
+</section>
 <div id="claims" class="hidden">
 <h3 style="font-size:15px;margin:12px 0">Already paid using our PayPal link?</h3>
 <p>If you already have a PayPal receipt, submit the transaction ID. This creates a request for manual verification — <strong>it does not instantly unlock the app</strong>.</p>
@@ -77,6 +90,17 @@ const client=createClient(API,KEY,{
   storageKey:'smart-greetings-customer-auth-v1'}
 });
 const $=id=>document.getElementById(id);
+const giftStorageKey='smart-greetings:pending-gift-v1';
+const incomingGift=new URLSearchParams(location.hash.replace(/^#/,'')).get('invite');
+if(incomingGift && /^[0-9a-f]{32}$/i.test(incomingGift)){
+  try{localStorage.setItem(giftStorageKey,incomingGift.toUpperCase());}catch{}
+  // Remove the private invite token from the address bar and browser history.
+  history.replaceState(null,'',location.pathname+location.search);
+}
+try{
+  const pendingGift=localStorage.getItem(giftStorageKey);
+  if(pendingGift && /^[0-9A-F]{32}$/.test(pendingGift))$('gift-code').value=pendingGift;
+}catch{}
 const setStatus=(id,msg,tone='info')=>{const el=$(id);el.textContent=msg;el.dataset.tone=tone;};
 let mode='signin';
 let currentUserId=null;
@@ -170,6 +194,7 @@ async function refreshMember(){
     $('entitlement-detail').textContent=paid?'Your purchase entitlement is active.':claims.length?
       'Latest claim: '+claims[0].status+' · '+new Date(claims[0].created_at).toLocaleDateString() :
       'No verified purchase attached to this account.';
+    $('gift-card').classList.toggle('hidden',paid);
     $('claims').classList.toggle('hidden',paid);
     $('verified-member').classList.toggle('hidden',!paid);
     if(claims.length&&!paid)setStatus('claim-status',
@@ -180,6 +205,39 @@ async function refreshMember(){
     $('entitlement-detail').textContent=String(err.message||err).slice(0,180);
   }
 }
+$('gift-form').addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(!currentUserId){setStatus('gift-status','Please sign in before redeeming an invitation.','error');return;}
+  const code=$('gift-code').value.trim().toUpperCase();
+  if(!/^[0-9A-F]{32}$/.test(code)){
+    setStatus('gift-status','Enter the 32-character invitation code from your private link.','error');
+    return;
+  }
+  const btn=$('gift-redeem');
+  btn.disabled=true;
+  setStatus('gift-status','Checking your one-time invitation…');
+  try{
+    const {data,error}=await client.rpc('redeem_smart_greetings_gift',{p_code:code});
+    if(error)throw error;
+    if(data==='redeemed'||data==='already_access'){
+      try{localStorage.removeItem(giftStorageKey);}catch{}
+      $('gift-code').value='';
+      setStatus('gift-status','Your lifetime access is active!','success');
+      await refreshMember();
+      return;
+    }
+    const messages={
+      invalid:'That invitation code was not recognized. Please check the link Robert received.',
+      used:'That invitation has already been redeemed. Each code is valid for one account.',
+      expired:'This invitation has expired. Ask EMTizzle AI for a new invitation.',
+      sign_in_required:'Please sign in before redeeming the code.',
+      contact_support:'This account has an existing access record. Contact EMTizzle AI for help.'
+    };
+    setStatus('gift-status',messages[data]||'We could not redeem that invitation. Please try again.','error');
+  }catch(err){
+    setStatus('gift-status','Could not verify the invitation: '+String(err.message||err).slice(0,150),'error');
+  }finally{btn.disabled=false}
+});
 $('claim-form').addEventListener('submit',async e=>{
   e.preventDefault();
   if(!currentUserId)return;
