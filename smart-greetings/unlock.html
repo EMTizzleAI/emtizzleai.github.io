@@ -32,7 +32,20 @@
 <label class="field">Password<input id="password" type="password" required minlength="8" autocomplete="current-password" placeholder="At least 8 characters"></label>
 <button id="account-submit" class="btn" type="submit">Sign in</button>
 </form>
-<button type="button" class="btn-outline" id="forgot-password" style="margin-top:12px">Forgot your password?</button><p class="muted" style="margin-top:12px">Creating an account may require email confirmation. Check your inbox after registering.</p>
+<button type="button" class="btn-outline" id="forgot-password" style="margin-top:12px">Forgot your password?</button>
+<p class="muted" style="margin-top:12px">Creating an account may require email confirmation. Check your inbox after registering.</p>
+<details id="manual-recovery" style="margin-top:16px;padding:14px 12px;border:1px solid var(--border);border-radius:12px;background:#102d30">
+<summary style="cursor:pointer;color:var(--gold);font-size:13px;font-weight:750">Reset email sends you to localhost? Fix it here</summary>
+<p style="margin:13px 0 10px">Request a <strong>new</strong> reset email using the button above. Do <strong>not</strong> open its reset link. Instead, long-press the link in your email and choose <strong>Copy link address</strong>. Paste it below to finish safely on Smart Greetings.</p>
+<p class="muted">Your recovery link is secret. Never send it to anyone, including support. An already-opened link may have expired; request a new one if needed.</p>
+<form id="manual-recovery-form">
+<label class="field">Paste the password-reset email link
+<input id="manual-recovery-link" type="url" required maxlength="2500" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://…supabase.co/auth/v1/verify?…">
+</label>
+<button id="manual-recovery-submit" class="btn" type="submit">Verify email link &amp; choose a new password</button>
+</form>
+<p id="manual-recovery-status" class="status" role="status" aria-live="polite">Only paste a reset link you requested yourself.</p>
+</details>
 <div id="login-status" class="status" role="status" aria-live="polite">Checking sign-in…</div>
 </section>
 <section class="card hidden" id="reset-card" aria-labelledby="reset-title">
@@ -126,6 +139,39 @@ $('forgot-password').addEventListener('click',async()=>{
     setStatus('login-status','If this email has an account, a password reset link will be sent. Check your inbox and spam folder.','success');
   }catch(e){setStatus('login-status',String(e.message||e).slice(0,190),'error');}
   finally{btn.disabled=false;}
+});
+// Recovery links can fall back to localhost when the hosted Auth redirect allowlist is misconfigured.
+// Verify the emailed one-time token in this official page instead. Never log, store or transmit the link elsewhere.
+$('manual-recovery-form').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const btn=$('manual-recovery-submit');
+  btn.disabled=true;
+  setStatus('manual-recovery-status','Verifying the private email link securely…');
+  try{
+    const raw=$('manual-recovery-link').value.trim();
+    const link=new URL(raw);
+    if(link.origin!==API||link.pathname!=='/auth/v1/verify'||
+       link.searchParams.get('type')!=='recovery'){
+      throw new Error('This is not a Smart Greetings password-reset email link.');
+    }
+    const token_hash=link.searchParams.get('token');
+    if(!token_hash||!/^[A-Za-z0-9_-]{32,256}$/.test(token_hash)){
+      throw new Error('The email link has no valid recovery token. Request a new reset email.');
+    }
+    const {data,error}=await client.auth.verifyOtp({token_hash,type:'recovery'});
+    if(error)throw error;
+    if(!data?.session)throw new Error('This reset link did not create a session. Request a new link.');
+    // A successful verification consumes the token. Remove it immediately from the form.
+    $('manual-recovery-link').value='';
+    recovery.active=true;
+    setStatus('manual-recovery-status','Email verified. Choose your new password below.','success');
+    await refreshMember();
+    $('new-password').focus();
+  }catch(err){
+    const msg=String(err?.message||err);
+    setStatus('manual-recovery-status',msg.slice(0,180)+
+      (/(expired|invalid|already used|token)/i.test(msg)?' If this link was opened before, request a new reset email and copy it without opening.':''),'error');
+  }finally{btn.disabled=false;}
 });
 $('reset-form').addEventListener('submit',async e=>{
   e.preventDefault();
