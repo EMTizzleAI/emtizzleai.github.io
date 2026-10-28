@@ -12,12 +12,14 @@
 <meta property="og:image" content="https://emtizzleai.github.io/smart-greetings/icons/icon-512.png">
 <link rel="icon" href="./icons/icon-192.png">
 <link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <title>Smart Greetings · من القلب</title>
 <style>
 :root{color-scheme:dark;--gold:#f7dca4;--mint:#9ad7c5;--white:#f5f2e9;--border:#cbb17b68}
 *{box-sizing:border-box}
 body{margin:0;min-height:100vh;min-height:100svh;color:var(--white);background:radial-gradient(ellipse at 23% 0%,#24533f 0,transparent 48%),radial-gradient(ellipse at 90% 80%,#173d40 0,transparent 43%),#071e22;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.55}
-a{color:inherit}a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+a{color:inherit}button{font:inherit;cursor:pointer}button:disabled{cursor:default;opacity:.8}[hidden]{display:none!important}a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
 header{max-width:1080px;margin:auto;padding:23px 22px;display:flex;align-items:center;justify-content:space-between;gap:15px}
 .brand{display:flex;align-items:center;gap:12px;font-weight:800}
 .logo{display:grid;place-items:center;width:50px;height:50px;background:linear-gradient(145deg,#24674f,#082e31);border:1px solid var(--border);border-radius:17px;color:var(--gold);font-family:Georgia,serif;font-size:32px}
@@ -62,7 +64,9 @@ footer{text-align:center;color:#99beb4;font-size:13px;padding:17px 20px 36px}
 <div class="actions">
 <a class="btn primary" href="./shop.html">Explore Smart Greetings · $1.99 →</a>
 <a class="btn secondary" href="./unlock.html">Already a member? Open your app</a>
+<button class="btn secondary" type="button" data-pwa-install>📲 Install on your phone</button>
 </div>
+<p class="note" data-pwa-help role="status" aria-live="polite" hidden></p>
 <p class="note">One-time lifetime access. Checkout is not open yet while we finish verified purchase activation. No payment is required to create an account.</p>
 </div>
 <div class="preview" aria-label="Illustrative bilingual greeting">
@@ -80,6 +84,7 @@ footer{text-align:center;color:#99beb4;font-size:13px;padding:17px 20px 36px}
 </section>
 </main>
 <footer>Smart Greetings · FahlawiAI · EMTizzleAI</footer>
+<script defer src="./install.js"></script>
 <script>
 // Migrate older free-preview visitors away from cached copies of the paid app.
 if ('serviceWorker' in navigator) {
