@@ -5,6 +5,9 @@
 <meta name="description" content="Create your Smart Greetings member account and track lifetime purchase access.">
 <meta name="robots" content="noindex,nofollow"><title>Smart Greetings · Member Access</title>
 <link rel="icon" href="./icons/icon-192.png">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <style>
 :root{color-scheme:dark;--gold:#f6d9a3;--mint:#95ddbf;--border:#d5ba8160;--text:#f5f0e7;--muted:#afcec3}
 *{box-sizing:border-box}body{margin:0;color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.5;background:radial-gradient(ellipse at 40% 0%,#235043,#0a2b2f 48%,#061c22 100%);min-height:100svh}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.64;cursor:not-allowed}a{color:var(--gold)}.hidden{display:none!important}main{max-width:610px;margin:0 auto;padding:31px 18px 80px}.mast{border-bottom:1px solid #d8ba8340;background:#061c20dd}.mast>div{max-width:870px;margin:auto;min-height:73px;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;gap:12px;align-items:center;color:#f8f2e6;text-decoration:none}.logo{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:#154c3d;border:1px solid var(--border);font:32px Georgia,serif;color:var(--gold)}.brand strong{display:block;letter-spacing:-.03em}.brand small{display:block;font-size:10px;color:#b5d5c7}.home{border:1px solid var(--border);border-radius:999px;padding:8px 11px;color:#f4deb4;text-decoration:none;font-size:12px}.eyebrow{text-align:center;font-weight:800;font-size:11px;letter-spacing:.18em;color:var(--mint);margin:12px 0}.title{text-align:center;font-family:Georgia,serif;font-weight:400;font-size:clamp(36px,8vw,51px);line-height:1.1;letter-spacing:-.045em;margin:11px 0}.title em{color:var(--gold);font-style:italic}.subtitle{text-align:center;font-size:14px;color:var(--muted);max-width:440px;margin:13px auto 24px}.price{margin:0 auto 22px;padding:13px 17px;border:1px solid var(--border);background:#21443d;border-radius:14px;display:flex;align-items:center;justify-content:space-between;gap:10px}.price strong{font-family:Georgia,serif;color:var(--gold);font-size:26px;font-weight:400}.price span{font-size:12px;color:#d6e3d2}.card{border:1px solid var(--border);border-radius:22px;background:linear-gradient(150deg,#183f3a,#102a30);padding:22px 20px;margin-bottom:18px;box-shadow:0 13px 28px #0002}.card h2{font-size:20px;margin:0 0 10px;letter-spacing:-.03em}.card p{font-size:13px;color:var(--muted);margin:0 0 14px}.switch{display:flex;gap:7px;background:#08282a;border-radius:12px;padding:5px;margin-bottom:18px}.switch button{flex:1;border:0;border-radius:10px;background:none;color:#a5c9bd;padding:11px;font-size:13px;font-weight:700}.switch button[aria-pressed=true]{background:#345b49;color:#fff1cc}.field{display:grid;gap:7px;font-size:13px;font-weight:650;margin:0 0 15px}.field input{width:100%;min-height:52px;border-radius:12px;border:1px solid #8dad9b80;background:#06272c;padding:11px 13px;color:#fff2dc;outline-offset:3px}.field input::placeholder{color:#7aaca1}.btn{display:block;width:100%;min-height:51px;border-radius:12px;padding:13px 14px;border:1px solid #fbe1b0;background:linear-gradient(120deg,#f6d89b,#fee5b2);font-size:14px;font-weight:800;color:#15332d}.btn-outline{display:block;width:100%;min-height:44px;border:1px solid #b5a88491;background:#26483e;color:#f9e7c5;border-radius:11px;padding:10px 12px;font-size:13px;font-weight:700}.status{border:1px solid #b7b5864a;color:#e6e5c3;font-size:12px;line-height:1.55;border-radius:12px;background:#122e30;padding:11px 12px;margin-top:14px}.status[data-tone=error]{color:#ffd0c1;border-color:#e8a69f77}.status[data-tone=success]{color:#baffd2;border-color:#7ed5a677}.note{border-left:3px solid #e1ba7e;padding:9px 12px;color:#ccded0;font-size:12px;background:#efd8a70a;margin-bottom:16px}.summary{display:flex;align-items:start;gap:11px;background:#102d30;padding:14px;border-radius:12px;margin:12px 0}.summary>span{font-size:26px}.summary strong{display:block;font-size:13px}.summary small{display:block;color:#bcd3c6;font-size:12px;margin-top:4px}.muted{font-size:12px!important;color:#9fbeb1!important}.footer{text-align:center;color:#8baea2;font-size:11px;line-height:1.7;padding:12px 18px 30px}
@@ -15,6 +18,10 @@
 <div class="eyebrow">✦ CUSTOMER ACCESS ✦</div>
 <h1 class="title">Your little corner<br>of <em>beautiful words.</em></h1>
 <p class="subtitle">Create your account to keep track of your Smart Greetings lifetime access.</p>
+<div style="text-align:center;margin:-5px auto 23px;max-width:390px">
+<button type="button" class="btn-outline" data-pwa-install>📲 Install Smart Greetings on your phone</button>
+<p class="muted" data-pwa-help role="status" aria-live="polite" hidden style="margin:10px 0 0"></p>
+</div>
 <div class="price"><span>✦ Smart Greetings · One-time purchase</span><strong>$1.99</strong></div>
 <section class="card" id="login-card" aria-labelledby="login-title">
 <h2 id="login-title">Welcome ♡</h2>
@@ -60,6 +67,7 @@
 </section>
 <p class="footer">A one-time app purchase is separate from optional Puter AI usage, which has its own limits and possible charges. No subscription. ♡</p>
 </main>
+<script defer src="./install.js"></script>
 <script type="module">
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.79.0/+esm';
 const API='https://ysthtzcjgtakuwvodbff.supabase.co';
