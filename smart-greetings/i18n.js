@@ -8,6 +8,38 @@ const savedAttributes = new WeakMap(), renderedAttributes = new WeakMap();
 let language='en';
 try { language=localStorage.getItem(key)==='ar'?'ar':'en'; } catch {}
 const whitespace=/(^\s*)([\s\S]*?)(\s*$)/;
+// The greeting library already contains human-authored Arabic occasion labels.
+function importBilingualOccasions() {
+  const node=document.getElementById('occasion-json');
+  if(!node)return;
+  try {
+    const occasions=JSON.parse(node.textContent).occasions||[];
+    for(const occasion of occasions) {
+      for(const field of ['name','subtitle']) {
+        const pair=occasion[field];
+        if(pair?.en && pair?.ar) translations[pair.en]=pair.ar;
+      }
+    }
+  } catch(error) { console.warn('Smart Greetings localization data unavailable:',error); }
+}
+Object.assign(translations, {
+  'The Look':'النظرة',
+  'A Secret for the Stars':'سر للنجوم',
+  'That Second':'تلك الثانية',
+  'Across the Water':'عبر المياه',
+  'Not All the Way':'ليس إلى النهاية',
+  'The Softest Hour':'أرق ساعة',
+  'Warmth':'دفء',
+  'One Ordinary Evening':'مساء عادي',
+  'Lost for Words':'عجزت الكلمات',
+  'Leave the Lights Low':'اترك الأضواء خافتة',
+  'The World Makes Sense':'العالم أصبح مفهوماً',
+  'The Midnight Message':'رسالة منتصف الليل',
+  'Unfinished Conversation':'حديث لم ينتهِ',
+  'A Little Secret':'سر صغير',
+  'Softness':'حنان',
+  'Until I See You':'حتى أراك'
+});
 function translate(value) {
   const parts=String(value).match(whitespace);
   if(!parts) return value;
@@ -56,11 +88,15 @@ function apply() {
   }
   const button=document.getElementById('sg-lang-button');
   if(button) {
-    button.textContent=language==='ar'?'English':'العربية';
-    button.setAttribute('aria-label',language==='ar'?'Switch website to English':'حوّل الموقع إلى العربية');
-    button.setAttribute('title',language==='ar'?'Switch website to English':'حوّل الموقع إلى العربية');
-    button.setAttribute('lang',language==='ar'?'en':'ar');
-    button.setAttribute('aria-pressed',String(language==='ar'));
+    const label=language==='ar'?'English':'العربية';
+    const accessible=language==='ar'?'Switch website to English':'حوّل الموقع إلى العربية';
+    const lang=language==='ar'?'en':'ar';
+    const pressed=String(language==='ar');
+    if(button.textContent!==label)button.textContent=label;
+    if(button.getAttribute('aria-label')!==accessible)button.setAttribute('aria-label',accessible);
+    if(button.getAttribute('title')!==accessible)button.setAttribute('title',accessible);
+    if(button.getAttribute('lang')!==lang)button.setAttribute('lang',lang);
+    if(button.getAttribute('aria-pressed')!==pressed)button.setAttribute('aria-pressed',pressed);
   }
 }
 let pending=false;
@@ -70,6 +106,7 @@ function schedule(){
   requestAnimationFrame(()=>{pending=false;apply();});
 }
 function init() {
+  importBilingualOccasions();
   const style=document.createElement('style');
   style.textContent=`
 .sg-language-bar{display:flex;justify-content:flex-end;align-items:center;min-height:38px;padding:3px max(14px,calc((100vw - 1080px)/2));box-sizing:border-box;background:transparent;position:relative;z-index:30}
