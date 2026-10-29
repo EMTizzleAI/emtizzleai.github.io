@@ -94,5 +94,6 @@ if ('caches' in window) {
   caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('smart-greetings-')).map(k=>caches.delete(k)))).catch(()=>{});
 }
 </script>
+<script defer src="./i18n.js"></script>
 </body>
 </html>
