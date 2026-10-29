@@ -331,4 +331,5 @@ $('refresh-access').addEventListener('click',refreshMember);
 $('logout').addEventListener('click',async()=>{recovery.active=false;await client.auth.signOut();await refreshMember();switchMode('signin')});
 client.auth.onAuthStateChange(event=>{if(event==='PASSWORD_RECOVERY')recovery.active=true;setTimeout(refreshMember,0)});
 await refreshMember();
-</script></body></html>
+</script><script defer src="./i18n.js"></script>
+</body></html>
