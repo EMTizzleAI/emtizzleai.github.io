@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meet the Maker // EMTizzle AI</title>
+<meta name="description" content="Meet Andromeda Ambard, the human behind EMTizzleAI.">
+<style>
+:root{--pink:#ff2db2;--hot:#ff5ad9;--cyan:#5df8ff;--violet:#9a63ff;--bg:#08070d;--panel:#11101a;--text:#fff7ff;--muted:#c7b9cb;--line:#392641}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 5%,#26102e 0,transparent 30%),radial-gradient(circle at 10% 45%,#081d25 0,transparent 25%),var(--bg);color:var(--text);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background:repeating-linear-gradient(0deg,transparent 0 3px,#fff 4px);z-index:20}
+a{color:inherit}.wrap{width:min(1120px,91%);margin:auto}nav{height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.logo{font-weight:950;letter-spacing:.12em}.logo b{color:var(--pink);text-shadow:0 0 18px var(--pink)}.navlinks{display:flex;gap:22px;font:700 .78rem ui-monospace,monospace}.navlinks a{text-decoration:none;color:var(--muted)}.navlinks a:hover{color:var(--cyan)}
+.hero{min-height:80vh;display:grid;align-content:center;padding:75px 0;position:relative}.status{font:700 .78rem ui-monospace,monospace;color:var(--cyan);letter-spacing:.12em}.status:before{content:"●";color:#69ff8c;margin-right:9px;text-shadow:0 0 12px #69ff8c}
+h1{font-size:clamp(3.3rem,9vw,8.2rem);line-height:.84;letter-spacing:-.07em;margin:22px 0 30px;max-width:1050px;text-transform:uppercase}h1 .neon{color:var(--pink);text-shadow:0 0 12px #ff2db288,0 0 35px #ff2db244}h1 .cute{font-size:.35em;vertical-align:top;letter-spacing:0;color:var(--cyan)}
+.lead{max-width:750px;font-size:clamp(1.05rem,2vw,1.35rem);color:var(--muted)}.lead strong{color:#fff}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}.btn{padding:12px 18px;border:1px solid var(--pink);font:800 .78rem ui-monospace,monospace;text-decoration:none;box-shadow:0 0 18px #ff2db222}.btn.hot{background:var(--pink);color:#100711;box-shadow:0 0 25px #ff2db266}.btn:hover{transform:translateY(-2px);border-color:var(--cyan)}
+.ticker{border-block:1px solid var(--line);padding:14px 0;color:var(--cyan);font:700 .75rem ui-monospace,monospace;white-space:nowrap;overflow:hidden;text-shadow:0 0 9px #5df8ff66}
+section{padding:90px 0;border-bottom:1px solid var(--line)}.tag{font:700 .75rem ui-monospace,monospace;color:var(--pink);letter-spacing:.14em}h2{font-size:clamp(2rem,5vw,4.2rem);line-height:1;letter-spacing:-.045em;margin:12px 0 38px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.card{position:relative;background:linear-gradient(145deg,#15101b,#0c0b12);border:1px solid var(--line);padding:29px;min-height:245px;overflow:hidden}.card:after{content:"✦";position:absolute;right:20px;top:13px;color:var(--pink);opacity:.5}.card:hover{border-color:var(--pink);box-shadow:0 0 28px #ff2db21c}.num{font:700 .72rem ui-monospace,monospace;color:var(--cyan)}.card h3{font-size:1.45rem;margin:28px 0 9px}.card p{color:var(--muted);margin:0}.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}.chip{border:1px solid #49364e;padding:4px 8px;font:600 .67rem ui-monospace,monospace;color:#dfcae3}
+.about{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px}.about p{font-size:1.12rem;color:var(--muted)}.about strong{color:#fff}.terminal{margin-top:28px;border:1px solid var(--line);background:#050508;padding:18px;font:700 .75rem/1.9 ui-monospace,monospace;color:var(--cyan);box-shadow:0 0 25px #5df8ff0b}.terminal .p{color:var(--pink)}
+.contact{display:grid;grid-template-columns:1fr 1.15fr;gap:38px;align-items:stretch}
+.matrix-phone{position:relative;min-height:360px;border:1px solid #315b3b;background:#020403;overflow:hidden;isolation:isolate;box-shadow:inset 0 0 70px #69ff8c14,0 0 34px #69ff8c12}
+.matrix-phone:before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(circle at 50% 48%,#183d25 0,#07110b 46%,#010201 82%)}
+.code-rain{position:absolute;inset:-35% 4% 0;z-index:1;color:#69ff8c;font:700 .66rem/1.7 ui-monospace,monospace;letter-spacing:.18em;word-break:break-all;opacity:.18;text-shadow:0 0 7px #69ff8c;animation:codefall 14s linear infinite}
+.code-rain.two{inset:-60% -4% 0 10%;opacity:.09;animation-duration:21s;animation-direction:reverse}
+.photoreal-phone{position:absolute;z-index:3;left:50%;top:50%;width:108%;max-width:none;height:auto;display:block;transform:translate(-50%,-50%);filter:brightness(1.32) contrast(1.08) saturate(.92) drop-shadow(0 22px 30px #000) drop-shadow(0 0 24px #69ff8c55);animation:phonebreath 3.6s ease-in-out infinite}
+.matrix-phone:after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,#8aff9a08 4px);mix-blend-mode:screen}
+.matrix-phone:hover .photoreal-phone{filter:brightness(1.42) contrast(1.1) saturate(.96) drop-shadow(0 22px 32px #000) drop-shadow(0 0 34px #69ff8c88)}
+.matrix-phone:hover .code-rain{opacity:.27}
+@keyframes codefall{from{transform:translateY(-18%)}to{transform:translateY(35%)}}
+@keyframes phonebreath{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-51%) scale(1.012)}}
+@media(prefers-reduced-motion:reduce){.code-rain,.photoreal-phone{animation:none!important}}
+.contactbox{border:1px solid var(--pink);background:#09070d;padding:28px;box-shadow:0 0 32px #ff2db21c}.contactbox .prompt{font:800 .76rem ui-monospace,monospace;color:#69ff8c;letter-spacing:.1em}.contactbox h3{font-size:clamp(1.8rem,4vw,3.2rem);margin:10px 0 8px}.email{color:var(--cyan);font:700 clamp(.9rem,2vw,1.15rem) ui-monospace,monospace;overflow-wrap:anywhere}.contactbox p{color:var(--muted)}.contactbox .btn{display:inline-block;margin-top:8px}
+@media(max-width:700px){.contact{grid-template-columns:1fr}.matrix-phone{min-height:300px}.photoreal-phone{width:112%}}
+footer{padding:65px 0}.bigfoot{font-size:clamp(2.3rem,6vw,5.5rem);font-weight:950;line-height:.9;letter-spacing:-.055em}.bigfoot span{color:var(--pink);text-shadow:0 0 20px #ff2db255}.tiny{font:600 .72rem ui-monospace,monospace;color:#887c8b;margin-top:35px}
+@media(max-width:700px){.navlinks a:nth-child(-n+2){display:none}.grid,.about{grid-template-columns:1fr}.about{gap:10px}.hero{min-height:72vh}section{padding:65px 0}h1{font-size:clamp(3rem,17vw,5rem)}}
+
+/* Meet the Maker // portrait feature */
+.maker-header{margin-bottom:32px}.maker-header h2{margin-bottom:8px}.maker-header h2 span{color:var(--pink);text-shadow:0 0 26px #ff2db240}
+.maker-sub{color:var(--cyan);font:700 .8rem ui-monospace,monospace;letter-spacing:.08em}
+.maker-layout{display:grid;grid-template-columns:minmax(245px,.78fr) minmax(0,1.22fr);gap:50px;align-items:start}
+.maker-portrait{margin:0;position:relative;border:1px solid #65324f;background:linear-gradient(140deg,#31122a,#08070c);padding:10px;box-shadow:0 0 45px #ff2db223}
+.maker-portrait:before{content:"✦";position:absolute;right:-12px;top:-19px;font-size:2.4rem;color:var(--pink);text-shadow:0 0 28px var(--pink);z-index:2}
+.maker-portrait img{display:block;width:100%;height:auto;aspect-ratio:240/282;object-fit:cover;object-position:center;filter:contrast(1.04) saturate(.98)}
+.maker-portrait figcaption{padding:13px 8px 3px;font:700 .73rem ui-monospace,monospace;color:var(--cyan);letter-spacing:.09em}
+.maker-copy p{font-size:1.09rem;color:var(--muted);margin:0 0 19px}.maker-copy strong{color:#fff}.maker-copy .btn{display:inline-block;margin-top:4px}
+.maker-copy .terminal{margin-top:25px}
+@media(max-width:760px){.maker-layout{grid-template-columns:1fr;gap:25px}.maker-portrait{max-width:360px}.maker-header{margin-bottom:20px}.navlinks{gap:13px}.navlinks a{font-size:.69rem}.navlinks a:nth-child(1){display:none}}
+
+
+nav .navlinks{flex-wrap:wrap;justify-content:flex-end}.navlinks .maker-link{color:var(--pink)}@media(max-width:700px){nav .navlinks a.maker-link{display:inline-block;font-size:.69rem}.navlinks{gap:10px}nav .logo{font-size:.83rem;white-space:nowrap}}
+
+.maker-page section{padding:65px 0 90px}.maker-page .maker-header h1{font-size:clamp(2.65rem,7vw,5.4rem);line-height:1;margin:12px 0 10px;letter-spacing:-.05em}.maker-header h1 span{color:var(--pink);text-shadow:0 0 26px #ff2db240}.maker-page .back-link{display:inline-block;margin-bottom:28px;color:var(--cyan);font:700 .78rem ui-monospace,monospace;text-decoration:none}.maker-page .back-link:hover{text-decoration:underline}.maker-page .maker-portrait{max-width:400px}.maker-page .maker-layout{align-items:start}@media(max-width:700px){.maker-page section{padding:36px 0 60px}.maker-page nav .navlinks a{display:inline-block}.maker-page nav .navlinks a:nth-child(2){display:none}.maker-page .maker-portrait{max-width:340px}}
+</style></head><body class="maker-page">
+<div class="wrap"><nav><a class="logo" href="./" style="text-decoration:none">EMTIZZLE <b>AI</b></a><div class="navlinks"><a href="./">HOME</a><a href="./#work">WORK</a><a href="./#contact">CONTACT</a></div></nav></div>
+<main><section id="about"><div class="wrap">
+<a class="back-link" href="./">← BACK TO THE LAB</a><div class="maker-header"><div class="tag">// HUMAN BEHIND THE MACHINE</div><h1>MEET THE <span>MAKER.</span></h1><div class="maker-sub">PART MEDIC. PART MAKER. ALWAYS BUILDING. ♡</div></div>
+<div class="maker-layout">
+<figure class="maker-portrait"><img src="assets/meet-the-maker.jpg" alt="Portrait of Andromeda Ambard, founder of EMTizzleAI" width="240" height="282" loading="lazy"><figcaption>ANDROMEDA AMBARD // EMTIZZLE AI</figcaption></figure>
+<div class="maker-copy">
+<p>Hi, I'm <strong>Andromeda</strong> — a software developer, AI analyst, security researcher and the maker behind <strong>EMTizzleAI</strong>.</p>
+<p>My path into technology runs through <strong>emergency medicine and behavioral health</strong>. Working with people in high-stakes situations taught me to ask better questions, work through messy problems and build things that are actually useful.</p>
+<p>These days I'm working across <strong>full-stack applications, local AI agents, security testing and robotics</strong>. Some projects are serious, some are wonderfully strange. The rule is the same: <strong>make weird things, and make them work.</strong></p>
+<a class="btn" href="./#contact">LET'S BUILD SOMETHING ↗</a>
+<div class="terminal"><span class="p">$</span> whoami<br>Andromeda Ambard<br><span class="p">$</span> maker --focus<br>HUMAN_CENTERED_TECH · LOCAL_AI · FULL_STACK · SECURITY · ROBOTICS<br><span class="p">$</span> status<br>building_weird_things_that_work = true ♡</div>
+</div></div></div></section>
+</main>
+<footer><div class="wrap"><div class="tag">// EMTIZZLE AI × GLITCHBOT ENERGY</div><div class="bigfoot">MAKE WEIRD THINGS.<br><span>MAKE THEM WORK.</span></div><div class="tiny">© 2026 ANDROMEDA AMBARD // EMTIZZLE AI // SIGNAL ACTIVE ✦</div></div></footer></body></html>

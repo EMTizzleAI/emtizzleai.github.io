@@ -44,11 +44,13 @@ footer{padding:65px 0}.bigfoot{font-size:clamp(2.3rem,6vw,5.5rem);font-weight:95
 .maker-copy p{font-size:1.09rem;color:var(--muted);margin:0 0 19px}.maker-copy strong{color:#fff}.maker-copy .btn{display:inline-block;margin-top:4px}
 .maker-copy .terminal{margin-top:25px}
 @media(max-width:760px){.maker-layout{grid-template-columns:1fr;gap:25px}.maker-portrait{max-width:360px}.maker-header{margin-bottom:20px}.navlinks{gap:13px}.navlinks a{font-size:.69rem}.navlinks a:nth-child(1){display:none}}
+
+nav .navlinks{flex-wrap:wrap;justify-content:flex-end}.navlinks .maker-link{color:var(--pink)}@media(max-width:700px){nav .navlinks a.maker-link{display:inline-block;font-size:.69rem}.navlinks{gap:10px}nav .logo{font-size:.83rem;white-space:nowrap}}
 </style></head><body>
-<div class="wrap"><nav><div class="logo">EMTIZZLE <b>AI</b></div><div class="navlinks"><a href="#work">WORK</a><a href="#about">MAKER</a><a href="#contact">CONTACT</a><a href="https://github.com/EMTizzleAI">GITHUB ↗</a></div></nav>
+<div class="wrap"><nav><div class="logo">EMTIZZLE <b>AI</b></div><div class="navlinks"><a href="#work">WORK</a><a class="maker-link" href="meet-the-maker.html">MEET THE MAKER</a><a href="#contact">CONTACT</a><a href="https://github.com/EMTizzleAI">GITHUB ↗</a></div></nav>
 <header class="hero"><div class="status">SYSTEM ONLINE // BUILD MODE</div><h1>CODE.<br><span class="neon">BREAK.</span><br>BUILD BETTER.<span class="cute"> ♡</span></h1>
 <div class="lead"><strong>Andromeda Ambard</strong> builds across full-stack software, local AI, security research and embodied systems — with a background forged in emergency medicine, behavioral analysis and crisis response.</div>
-<div class="actions"><a class="btn hot" href="#work">ENTER THE LAB ↓</a><a class="btn" href="https://github.com/EMTizzleAI">VIEW GITHUB ↗</a><a class="btn" href="#about">MEET THE MAKER ↘</a></div></header></div>
+<div class="actions"><a class="btn hot" href="#work">ENTER THE LAB ↓</a><a class="btn" href="https://github.com/EMTizzleAI">VIEW GITHUB ↗</a><a class="btn" id="about" href="meet-the-maker.html">MEET THE MAKER ↗</a></div></header></div>
 <div class="ticker">✦ FULL-STACK ✦ LOCAL LLMs ✦ AI SAFETY ✦ RED TEAMING ✦ AGENTS ✦ VULNERABILITY RESEARCH ✦ ROBOTICS ✦ LINUX ✦ GLITCHBOT ✦ HUMAN-CENTERED SYSTEMS ✦</div>
 <main><section id="work"><div class="wrap"><div class="tag">// SELECTED SYSTEMS</div><h2>Cute interface.<br>Serious machinery.</h2><div class="grid">
 <article class="card"><div class="num">01 // SOFTWARE</div><h3>Full-Stack Development</h3><p>Applications, APIs, automation and custom software built from concept through deployment.</p><div class="chips"><span class="chip">FULL-STACK</span><span class="chip">APIs</span><span class="chip">VERCEL</span><span class="chip">GITHUB</span></div></article>
@@ -56,17 +58,6 @@ footer{padding:65px 0}.bigfoot{font-size:clamp(2.3rem,6vw,5.5rem);font-weight:95
 <article class="card"><div class="num">03 // SECURITY</div><h3>AI Red Team + Research</h3><p>AI evaluation, adversarial testing, vulnerability research and hands-on web and network security practice.</p><div class="chips"><span class="chip">AI SAFETY</span><span class="chip">BURP SUITE</span><span class="chip">WIRESHARK</span><span class="chip">HACKERONE</span></div></article>
 <article class="card"><div class="num">04 // EMBODIED AI</div><h3>Robotics Lab</h3><p>Exploring mechanics, controls and intelligence at the point where software gets a body.</p><div class="chips"><span class="chip">DYNAMIXEL</span><span class="chip">ROBOTICS</span><span class="chip">CONTROL</span><span class="chip">PROTOTYPING</span></div></article>
 </div></div></section>
-<section id="about"><div class="wrap">
-<div class="maker-header"><div class="tag">// HUMAN BEHIND THE MACHINE</div><h2>MEET THE <span>MAKER.</span></h2><div class="maker-sub">PART MEDIC. PART MAKER. ALWAYS BUILDING. ♡</div></div>
-<div class="maker-layout">
-<figure class="maker-portrait"><img src="assets/meet-the-maker.jpg" alt="Portrait of Andromeda Ambard, founder of EMTizzleAI" width="240" height="282" loading="lazy"><figcaption>ANDROMEDA AMBARD // EMTIZZLE AI</figcaption></figure>
-<div class="maker-copy">
-<p>Hi, I'm <strong>Andromeda</strong> — a software developer, AI analyst, security researcher and the maker behind <strong>EMTizzleAI</strong>.</p>
-<p>My path into technology runs through <strong>emergency medicine and behavioral health</strong>. Working with people in high-stakes situations taught me to ask better questions, work through messy problems and build things that are actually useful.</p>
-<p>These days I'm working across <strong>full-stack applications, local AI agents, security testing and robotics</strong>. Some projects are serious, some are wonderfully strange. The rule is the same: <strong>make weird things, and make them work.</strong></p>
-<a class="btn" href="#contact">LET'S BUILD SOMETHING ↗</a>
-<div class="terminal"><span class="p">$</span> whoami<br>Andromeda Ambard<br><span class="p">$</span> maker --focus<br>HUMAN_CENTERED_TECH · LOCAL_AI · FULL_STACK · SECURITY · ROBOTICS<br><span class="p">$</span> status<br>building_weird_things_that_work = true ♡</div>
-</div></div></div></section>
 <section id="contact"><div class="wrap contact"><div class="matrix-phone" aria-hidden="true">
 <div class="code-rain">01001101 01000001 01010100 01010010 01001001 01011000 00110110 00110001 00110111 01000011 01000001 01001100 01001100 01010100 01001000 01000101 01001100 01001001 01001110 01000101 01010011 01001001 01000111 01001110 01000001 01001100</div>
 <div class="code-rain two">10110100 00101101 11100101 01001110 00110101 10101001 01100110 01010101 00111010 11001001 01010011 00101110 10110101 01101001 01001110 01000111 00101111 01001111 01001110</div>
