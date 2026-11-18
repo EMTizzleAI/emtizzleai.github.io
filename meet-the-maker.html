@@ -39,7 +39,7 @@ footer{padding:65px 0}.bigfoot{font-size:clamp(2.3rem,6vw,5.5rem);font-weight:95
 .maker-layout{display:grid;grid-template-columns:minmax(245px,.78fr) minmax(0,1.22fr);gap:50px;align-items:start}
 .maker-portrait{margin:0;position:relative;border:1px solid #65324f;background:linear-gradient(140deg,#31122a,#08070c);padding:10px;box-shadow:0 0 45px #ff2db223}
 .maker-portrait:before{content:"✦";position:absolute;right:-12px;top:-19px;font-size:2.4rem;color:var(--pink);text-shadow:0 0 28px var(--pink);z-index:2}
-.maker-portrait img{display:block;width:100%;height:auto;aspect-ratio:240/282;object-fit:cover;object-position:center;filter:contrast(1.04) saturate(.98)}
+.maker-portrait{z-index:21;isolation:isolate}.maker-portrait img{display:block;width:100%;height:auto;object-fit:contain;filter:none}
 .maker-portrait figcaption{padding:13px 8px 3px;font:700 .73rem ui-monospace,monospace;color:var(--cyan);letter-spacing:.09em}
 .maker-copy p{font-size:1.09rem;color:var(--muted);margin:0 0 19px}.maker-copy strong{color:#fff}.maker-copy .btn{display:inline-block;margin-top:4px}
 .maker-copy .terminal{margin-top:25px}
@@ -54,7 +54,7 @@ nav .navlinks{flex-wrap:wrap;justify-content:flex-end}.navlinks .maker-link{colo
 <main><section id="about"><div class="wrap">
 <a class="back-link" href="./">← BACK TO THE LAB</a><div class="maker-header"><div class="tag">// HUMAN BEHIND THE MACHINE</div><h1>MEET THE <span>MAKER.</span></h1><div class="maker-sub">PART MEDIC. PART MAKER. ALWAYS BUILDING. ♡</div></div>
 <div class="maker-layout">
-<figure class="maker-portrait"><img src="assets/meet-the-maker.jpg" alt="Portrait of Andromeda Ambard, founder of EMTizzleAI" width="240" height="282" loading="lazy"><figcaption>ANDROMEDA AMBARD // EMTIZZLE AI</figcaption></figure>
+<figure class="maker-portrait"><img src="assets/maker-portrait-hd.jpg" alt="Portrait of Andromeda Ambard, founder of EMTizzleAI" width="1151" height="1536" loading="lazy"><figcaption>ANDROMEDA AMBARD // EMTIZZLE AI</figcaption></figure>
 <div class="maker-copy">
 <p>Hi, I'm <strong>Andromeda</strong> — a software developer, AI analyst, security researcher and the maker behind <strong>EMTizzleAI</strong>.</p>
 <p>My path into technology runs through <strong>emergency medicine and behavioral health</strong>. Working with people in high-stakes situations taught me to ask better questions, work through messy problems and build things that are actually useful.</p>
